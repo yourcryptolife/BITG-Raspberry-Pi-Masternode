@@ -121,7 +121,7 @@ Next we need to lock the wallet
 
 Now backup the wallet.dat file.
 
-NOTE: Make sure that your USB drive called BITGBackup is inserted into the Pi.
+> NOTE: Make sure that your USB drive called BITGBackup is inserted into the Pi.
 
 To do a manual backup of the wallet.dat file, do the following:
 
@@ -344,16 +344,53 @@ press enter
 
 press enter
 
-Follow the prompts and instructions to get the BITG masternode server up and running
+This will start the BITG masternode setup script. 
 
-Once the script has finished running, you can check on the masternode status by typing
+If its the first time you are using it, you will need to install all needed dependencies – in which case type Y and press enter.
+
+If you have already installed these, type n and press enter.
+
+> NOTE: Installing the dependencies can take a while. If you are prompted to proceed with operation type y and press enter.
+
+The script will get to a point where you must start configuring the masternodes. 
+
+This is where you need the masternode alias, VPS server IP and port, & masternode private key information that we used earlier.
+
+Enter the number of masternodes you want to setup, and then enter the relevant info for each node when prompted.
+
+For the RPC ports, you can enter any valid free ports – the script recommends you start at 17100 and work upwards from there for each masternode.
+
+Once the script has finished running, you will see a message that says 
+
+`Bitcoin Green server starting.`
+
+If at any time you made an error just enter CTRL + C and then you can restart the script by typing
+
+> ./setup.sh
+
+durinng setup, each masternode is given an alias and has its own control script in the ~/bin folder. To check on the status of each masternode, type
+
+> cd bin
+
+then type 
+
+> ls
+
+You will see the files available in the /bin folder. 
+
+You want to run one that looks like `bitcoingreen-cli_mn1.sh`
+
+You can now check on the masternode synchronisation status by typing
+
+> bitcoingreen-cli_mn1.sh mnsync status
+
+Run this until you see it say `“IsBlockChainSynced”: true` then type
 
 > bitcoingreen-cli_mn1.sh masternode status
-> NOTE: the part after the _ is the alias of your node - to check the status on each node, replace the alias with the node name, eg.
-> bitcoingreen-cli_mn1.sh masternode status
-> bitcoingreen-cli_mn2.sh masternode status
 
-When you get the message masternode started then you can go back to the Pi to complete the final steps
+Run this until you see “message”:Masternode successfully started”.
+
+Now we must go back to the Pi to complete the final steps of switching on your masternode.
 
 ## ON YOUR PI ##
 
