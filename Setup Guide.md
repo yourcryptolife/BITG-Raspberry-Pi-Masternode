@@ -2,13 +2,17 @@
 
 This is a guide for setting up a Bitcoin Green Cold VPS Masternode using a Raspberry Pi3 to host the cold wallet & a Vultr Ubuntu 16.04 VPS to act as the MN server. 
 
-The primary benefit of this setup is safety as it stores your coins locally (on the Pi) and protects your masternode investment from being stolen by hackers should they hack the VPS which is the public facing IP (NOTE: this also assumes that you ensure the Pi is protected by following the instructions in this guide). 
+This setup has 2 benefits over using your laptop / home PC:
 
-This setup also allows you to earn stake rewards by leaving the Pi online 24/7, and keeping the wallet on the Pi open all the time - encrypted and locked, but open for staking. 
+1. Safety as it stores your coins locally (on the Pi) and protects your masternode investment from being stolen by hackers should they manage to hack the VPS which is the masternodes public facing IP 
+
+> NOTE: this also assumes that you ensure the Pi is protected by following the instructions in this guide. 
+
+2. IN addition to masternode rewards, this setup allows you to earn staking rewards by leaving the Pi online 24/7, and keeping the wallet on the Pi open all the time - encrypted and locked, but open for staking.
 
 This allows you to maximise the return of your masternode as you will earn both masternode rewards as well as staking rewards.
 
-> Donations are appreciated in BITG: **GXtS1QCPsMANpRDQa5xFwogfbxT42dy5uV**
+> If you find it helpful, donations are appreciated in BITG :) **GXtS1QCPsMANpRDQa5xFwogfbxT42dy5uV**
 
 **Before we get started, you will need the following items:**
 
