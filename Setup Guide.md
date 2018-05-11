@@ -4,9 +4,9 @@ This is a guide for setting up a Bitcoin Green Cold VPS Masternode using a Raspb
 
 You can see the current performance of a BITG Masternode here: https://masternodes.online/currencies/BITG/
 
-This setup has 2 benefits over using your laptop / home PC to run the node:
+This setup has 2 main benefits with regards to running the node:
 
-1. Coin safety as it stores your coins locally (on the Pi) and protects your masternode investment from being stolen by hackers should they manage to hack the VPS which is the masternodes public facing IP address. 
+1. Coin safety. Because it stores your coins locally (on the Pi), it protects your masternode investment from being stolen by hackers should they manage to hack the VPS which is the masternodes public facing IP address.
 
 > NOTE: this also assumes that you ensure the Pi is has some basic protection by following the instructions in this guide. 
 
