@@ -1,4 +1,4 @@
-# Raspberry PI Bitcoin Green Cold Wallet Masternode Setup Guide #
+Raspberry PI Bitcoin Green Cold Wallet Masternode Setup Guide
 
 This is a guide for setting up a Bitcoin Green Cold VPS Masternode using a Raspberry Pi3 to host the cold wallet & a Vultr Ubuntu 16.04 VPS to act as the MN server. 
 
