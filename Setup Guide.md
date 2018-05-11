@@ -14,12 +14,6 @@ This setup has 2 main benefits with regards to running the node:
 
 This allows you to maximise the return of your masternode as you will earn both masternode rewards as well as staking rewards.
 
-If you find it helpful, donations are much appreciated :)
-
-> Bitcoin Green (BITG) **GXtS1QCPsMANpRDQa5xFwogfbxT42dy5uV**
-
-> Bitcoin (BTC) **1AxzU81tw8rBL9vRyGdhWL4s4C8BusffP7**
-
 **Before we get started, you will need the following items:**
 
 1. Raspberry Pi 3 to host your cold wallet and coins
@@ -438,8 +432,9 @@ Download eamviewer for Raspbian from this link: https://www.teamviewer.com/iotco
 
 Thats IT!
 
-I hope you found this guide useful. If you did, any donations are appreciated.
+## Donations ##
 
-> Send your BITG donations to 
-> Bitcoin Green (BITG) **GXtS1QCPsMANpRDQa5xFwogfbxT42dy5uV**
-> Bitcoin (BTC) **1AxzU81tw8rBL9vRyGdhWL4s4C8BusffP7**
+I hope you found this guide useful. If you did, any donations will be much appreciated :)
+
+> Donate Bitcoin Green (BITG) **GXtS1QCPsMANpRDQa5xFwogfbxT42dy5uV**
+> Donate Bitcoin (BTC) **1AxzU81tw8rBL9vRyGdhWL4s4C8BusffP7**
