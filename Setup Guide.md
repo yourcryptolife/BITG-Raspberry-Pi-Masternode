@@ -143,34 +143,34 @@ To keep the Pi running smoothly however, we want to automate this process, and e
 5. Copy and paste the following (everything BETWEEN –-start--- and –-end---) into nano:
 
 ---start---
-`
-`#!/bin/bash`
-`####################################`
-`# Backup BITG Wallet.dat file to USB`
-`####################################`
-`# What to backup
-`#backup_files="home/YOUR_USER/.bitcoingreen/wallet.dat"
-`backup_files="/home/bitgpi/.bitcoingreen/wallet.dat"
-`# Where to backup to
-`# NOTE: make sure to name the USB drive 'BITGBackup'
-`# path to the USB Drive for backups will be dest="/media/YOUR_USER/BITGBackup"
-`dest="/media/bitgpi/BITGBACKUP"
-`# Create archive filename.
-`day=$(date +"%Y%m%d%H%M")
-`archive_file="BITG-WalletBackup-$day.tgz"
-`# Print start status message.
-`echo "Backing up $backup_files to $dest/$archive_file"
-`date
-`echo
-`# Backup the files using tar.
-`tar czf $dest/$archive_file $backup_files
-`# Print end status message.
-`echo
-`echo "BITG wallet.dat file backup finished"
-`date
-`# Long listing of files in $dest to check file sizes.
-`ls -lh $dest
-`
+
+> #!/bin/bash`
+> ####################################
+> # Backup BITG Wallet.dat file to USB
+> ####################################
+> # What to backup
+> #backup_files="home/YOUR_USER/.bitcoingreen/wallet.dat"
+> backup_files="/home/bitgpi/.bitcoingreen/wallet.dat"
+# Where to backup to
+# NOTE: make sure to name the USB drive 'BITGBackup'
+# path to the USB Drive for backups will be dest="/media/YOUR_USER/BITGBackup"
+dest="/media/bitgpi/BITGBACKUP"
+# Create archive filename.
+day=$(date +"%Y%m%d%H%M")
+archive_file="BITG-WalletBackup-$day.tgz"
+# Print start status message.
+echo "Backing up $backup_files to $dest/$archive_file"
+date
+echo
+# Backup the files using tar.
+tar czf $dest/$archive_file $backup_files
+# Print end status message.
+echo
+echo "BITG wallet.dat file backup finished"
+date
+# Long listing of files in $dest to check file sizes.
+ls -lh $dest
+
 --end--
 
 6. Edit the line:
