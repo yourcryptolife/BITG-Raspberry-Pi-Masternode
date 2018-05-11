@@ -12,7 +12,7 @@ This setup has 2 benefits over using your laptop / home PC:
 
 This allows you to maximise the return of your masternode as you will earn both masternode rewards as well as staking rewards.
 
-> NOTE: If you find it helpful, donations are much appreciated :)
+If you find it helpful, donations are much appreciated :)
 
 > Bitcoin Green (BITG) **GXtS1QCPsMANpRDQa5xFwogfbxT42dy5uV**
 
