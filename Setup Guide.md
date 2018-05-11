@@ -13,15 +13,10 @@ This allows you to maximise the return of your masternode as you will earn both 
 **Before we get started, you will need the following items:**
 
 1. Raspberry Pi 3 to host your cold wallet and coins
-
 2. At least an 8GB micro SD Card with Noobs installed
-
 3. A Pi power pack, a monitor, USB keyboard and USB mouse. If you have a VGA monitor, you'll need a VGA to HDMI converter as the Pi only has a HDMI slot.
-
 4. A USB drive to hold backups of your wallet.dat & a backup image of the Pi's SD card. I recommend at least a 16GB USB drive for this. For the purposes of this guide please name the USB volume BITGBackup as we will setup a shell script & CRON job to manage this automatically later on.
-
 5. A Linux VPS - in this guide we will use a $5 Vultr Ubuntu Linux server - get your Vultr server here https://www.vultr.com/?ref=7352503
-
 6. At least 2501 BITG (2500 collateral for the masternode, the balance to cover any transaction fees). 
 
 You can buy this on any of the following exchanges:
@@ -67,37 +62,23 @@ First lets create a folder for all the Bitcoin Green files we will need to downl
 Check that you now have a folder called 'Bitcoingreen Files' under home/bitg (bitg is the superuser you created earlier)
 
 1. Open your browser on the Pi, and download the Pi BITG wallet from Github - https://github.com/bitcoingreen/bitcoingreen/releases/download/1.1.0/bitcoingreen-1.1.0-arm-linux-gnueabihf.tar.gz - save this file to the Bitcoingreen Files folder you just created.
-
 2. Next point your browser to https://www.amazon.de/clouddrive/share/FYC5wP8e282To2XxUkzxqzUNjzHQB8zrMIsGmT2KJXT to download the latest BITG Bootstrap files (this link is also available in the Links section of the Bitcoin Green Discord Channel - if you haven't already joined, you can do so here https://discord.gg/g3CFth)
-
 3. Save this to the Bitcoingreen Files folder as well.
-
 4. Extract the wallet zip file (right click on it, then select Extract Here). This should create a folder named bitcoingreen-1.1.0
-
 5. Open this folder, and then open the 'bin' folder. Inside the bin folder you will see 6 files. 
-
 6. Double click on the file called bitcoingreen-qt to start the wallet install. Press the 'Execute' button when prompted. 
-
 7. When prompted, select 'Use default data directory' (the path shown in grey should be /home/bitg/.bitcoingreen) – this is important for the backup script to work
-
 8. Click OK - the wallet will open, and you will see a message that says it is out of synch. 
-
 9. Without waiting for the wallet to synchronise, close the wallet down as we will now use the bootstrap to fast track the synchronisation process.
 
 To do this, we need to access the bootstrap files we downloaded earlier.
 
 1. first extract the bootstrap files we downloaded earlier (right click on the bootstrap zip file and select Extract Here)
-
 2. double click the folder BITG_Bootstrap
-
 3. Click anywhere inside the folder, and press CTRL+A to select all files and folders, then CTRL+C to copy them
-
 4. Navigate to the /home/bitg/.bitcoingreen folder and press CTRL+V to paste them into this folder (NOTE the . before bitcongreen – this is the default data directory for the wallet)
-
 5. You will see a warning popup that says you are about to overwrite files. Make sure you check the 'Apply this option to all existing files' and then click the Overwrite button
-
 6. Go back to the home>bitg>Bitcoin Green>bitcoingreen-1.0.0>bin folder, and double click the bitcoingreen-qt file again to launch the wallet. Remember to press the 'Execute' button when prompted.
-
 7. The wallet will now launch and complete the synchronisation process.
 
 Once the wallet has synchronised with the blockchain, we need to do a little tightening up on securing the wallet itself.
@@ -105,9 +86,7 @@ Once the wallet has synchronised with the blockchain, we need to do a little tig
 First we will encrypt the wallet.
 
 1. Click Settings > Encrypt Wallet
-
 2. Enter an 8 word or more secure passphrase and click OK
-
 3. VERY NB!!! Make sure that you save this passphrase somewhere safe - without it you will never be able to get your coins back if you need to restore the wallet at some point in the future. I personally have a printout of this that I save in my safe, as well as a copy on a usb pendrive that I also keep in my safe, and another on a working drive that I can access whenever I need it.
 
 Next we need to configure the wallet. 
@@ -115,13 +94,9 @@ Next we need to configure the wallet.
 Go to Settings > Options
 
 1. Under the Main Tab, make sure that the Start Bitcoin Green on system login is ticked
-
 2. Click the Wallet Tab
-
 3. Tick Enable coin control features
-
 4. Tick Show Masternodes tab
-
 5. Click OK
 
 Next we need to lock the wallet
@@ -149,9 +124,7 @@ To keep the Pi running smoothly however, we want to automate this process, and e
 > sudo nano bitgbackup.sh
 
 3. enter your password and press enter
-
 4. nano will now open.
-
 5. Copy and paste the following (everything BETWEEN –-start--- and –-end---) into nano:
 
 ---start---
@@ -205,22 +178,22 @@ to see that the backup file is being writtten to the USB.
 
 8. Press CTRL + X
 9. Press Y and then press Enter
-
 10. type
 
 > sudo chmod u+x bitgbackup.sh
 
 11. Press enter.
-
 12. now type
 
 > sudo ./bitgbackup.sh
 
 13. Press enter.
 
-You should see the script push out some output as it backs up to the USB drive
+You should see the script push out some output as it backs up to the USB drive. Thiss should show you teh directory listing of the USB sp you can see if your backup file exists.
 
-14. Open the USB drive in file explorer and confirm that the script has generated the backup file – you should see a file that is called something like BITG-WalletBackup-201805081029.tgz – the number at the end is the date and time of the backup so that you can keep track of them
+Open the USB drive in file explorer and confirm that the script has generated the backup file by opening the baackup zip file to see that the wallet .dat file has been saved. 
+
+You should see a file that is called something like BITG-WalletBackup-201805081029.tgz – the number at the end is the date and time of the backup so that you can keep track of them
 
 To automate this script, we must now setup a CRON job to manage it.
 
@@ -271,7 +244,7 @@ Click on the server to see the details screen where you will see the IP number a
 
 Now we need to setup the masternode configuration file on the Pi wallet. Before we do so we need the following set of info. 
 
->NOTE: you need a seperate dataset for EACH MN you setup, and you MUST have already transferred your MN collateral to the MN address so that we have a transaction hash value.
+> NOTE: you need a seperate dataset for EACH MN you setup, and you MUST have already transferred your MN collateral to the MN address so that we have a transaction hash value.
 
 For each MN we need:
 
@@ -286,7 +259,7 @@ Go to the bitg wallet on the Pi.
 2. Press enter
 3. copy and paste the result to a text editor
 
->NOTE: You must repeat this for each masternode you want to setup.
+> NOTE: You must repeat this for each masternode you want to setup.
 
 To generate the txid and output index, type 'masternode outputs' (without the '')
 
@@ -298,11 +271,14 @@ Now open the masternode configuration file, and enter the above information on a
 
 [Alias] [ipnumber:port] [MasternodePrivateKey] [TransactionID] [Index]
 
-eg. 
+eg.
+```
 MN1 234.178.115.231:9333 93HaYBVUCYjEMeeH1Y4sBGLALQZE1Yc1K64xiqgX37tGBDQL8Xg 2bcd3c84c84f87eaa86e4e56834c92927a07f9e18718810b92e0d0324456a67c 1
 MN2 192.168.1.1:9334 76HGT56432aashjhYT65435jGHHJGkjhhi887JHKkh908KJkjhhFDS34jj 98dsd664463008097fdsfsdf90sssa198df77987896fs6676686sdd8567547h7j7j 1
+```
 
-NOTE: keep all the info for each MN on the same line
+> NOTE: keep all the info for each MN on its own line
+
 Save and close the config file.
 
 Close the wallet.
@@ -311,48 +287,56 @@ Restart the wallet.
 
 OK so now we need to move across to setting up the VPS on Vultr.
 
-ON THE VPS
+## ON THE VPS ##
 
-This section is based on the excellent cold wallet setup guide & script provided by XeZZoR which you can get here https://goo.gl/S7fKdP  
+> NOTE: This section is based on the excellent cold wallet setup guide & script provided by XeZZoR which you can get here https://goo.gl/S7fKdP  
 
 First we need to connect to the VPS server you created at Vultr.
 
 On your Pi, open the console
 
-Type sudo su
+Type 
+
+> sudo su
 
 Enter your password
 
 You should now be root user (console should show a '#' instead of a '$')
 
-Now type ssh your_server_ip (eg. ssh 192.168.0.1) and press enter
+Now type 
+
+>ssh your_server_ip (eg. ssh 192.168.0.1) 
+
+and press enter
 
 Enter the password for the server (you can copy this from the Vultr dashboard – then use your mouse to right click and paste it into the terminal, and then press enter)
 
 Once you are logged in to the server via SSH, type/copy & paste the following commands into your terminal -  this will fetch and run XeZZoR's automatic server installation & setup script.
 
-wget https://raw.githubusercontent.com/XeZZoR/scripts/master/BITG/setup.sh
+> wget https://raw.githubusercontent.com/XeZZoR/scripts/master/BITG/setup.sh
 
 press enter
 
-chmod 755 setup.sh
+> chmod 755 setup.sh
 
 press enter 
 
-./setup.sh
+> ./setup.sh
 
 press enter
 
-Follow the prompts and instructions to get the 
-BITG masternode server up and running
+Follow the prompts and instructions to get the BITG masternode server up and running
 
 Once the script has finished running, you can check on the masternode status by typing
 
-bitcoingreen-cli_mn1.sh masternode status
+> bitcoingreen-cli_mn1.sh masternode status
+> NOTE: the part after the _ is the alias of your node - to check the status on each node, replace the alias with the node name, eg.
+> bitcoingreen-cli_mn1.sh masternode status
+> bitcoingreen-cli_mn2.sh masternode status
 
 When you get the message masternode started then you can go back to the Pi to complete the final steps
 
-ON YOUR PI
+## ON YOUR PI ##
 
 1. On the Pi, open the wallet and let it synchronise
 2. Unlock the wallet by going to Settings > Unlock wallet – enter your passphrase
@@ -369,13 +353,14 @@ Now the final step is to lock the wallet and then unlock the wallet for staking 
 3. Enter your passphrase and tick “Unlock for staking only”
 4. Click OK
 
-Congratulations!
+# Congratulations! #
 
 You are now setup to earn masternode rewards and staking rewards to your Raspberry Pi :)
 
-Additional Steps – HIGHLY Recommended but not required to earn rewards :)
+## Additional Steps ##
+### HIGHLY Recommended but not required to earn rewards :) ###
 
-Backup the SD Card
+**Backup the SD Card**
 
 A good thing to do now is to make a disk image backup of the SD card, so that if it fails, you can easily restore it.
 
@@ -383,13 +368,13 @@ You can use the excellent raspbiBackup script here: https://www.linux-tips-and-t
 
 You can also automate this to regularly backup your SD card image using a CRON job.
 
-Setup Remote Access with a GUI 
+**Setup Remote Access to the Pi with a GUI **
 
-Setup Remote access so that you can manage your Pi from anywhere using a GUI
+Setup Remote access so that you can manage your Pi from anywhere using Teamviewer. 
 
-Next we can setup remote access to your Pi using Teamviewer. 
+I do this as I can then control my wallet from my phone using the Teamviewer app. 
 
-I do this as I can then control my wallet from my phone using the Teamviewer app. It also means you can setup and manage multiple Pi's as your Pi mining setup grows :)
+It also means you can setup and manage multiple Pi's as your Pi mining setup grows :)
 
 Follow this tutorial to set Teamviewer up: https://m.youtube.com/watch?v=vr3Gf8vnKAg
 
