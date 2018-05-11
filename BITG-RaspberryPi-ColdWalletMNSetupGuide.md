@@ -2,7 +2,7 @@
 
 This is a guide for setting up a Bitcoin Green Cold VPS Masternode using a Raspberry Pi3 to host the cold wallet & a Vultr Ubuntu 16.04 VPS to act as the MN server.
 
-**Use at your oown risk!**
+**Use at your own risk!**
 
 You can see the current performance of a BITG Masternode here: https://masternodes.online/currencies/BITG/
 
