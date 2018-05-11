@@ -33,7 +33,10 @@ If you find it helpful, donations are much appreciated :)
 You can buy this on any of the following exchanges:
 
 Cryptopia: https://goo.gl/J64np1
+
 Coinexchange: https://goo.gl/LS2WV2
+
+CryptoBridge: https://goo.gl/7nZGdk
 
 OK, so let's get started. 
 
