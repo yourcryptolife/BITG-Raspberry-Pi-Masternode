@@ -340,11 +340,11 @@ press enter
 
 This will start the BITG masternode setup script. 
 
-If its the first time you are using it, you will need to install all needed dependencies – in which case type Y and press enter.
+If its the first time you are using it, you will need to install all needed dependencies – in which case type `y` and press enter.
 
-If you have already installed these, type n and press enter.
+If you have already installed these, type `n` and press enter.
 
-> NOTE: Installing the dependencies can take a while. If you are prompted to proceed with operation type y and press enter.
+> NOTE: Installing the dependencies can take a while. If you are prompted to proceed with operation type `y` and press enter.
 
 The script will get to a point where you must start configuring the masternodes. 
 
@@ -382,7 +382,7 @@ Run this until you see it say `“IsBlockChainSynced”: true` then type
 
 > bitcoingreen-cli_mn1.sh masternode status
 
-Run this until you see “message”:Masternode successfully started”.
+Run this until you see `“message”:Masternode successfully started”`.
 
 Now we must go back to the Pi to complete the final steps of switching on your masternode.
 
