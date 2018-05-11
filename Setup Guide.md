@@ -70,28 +70,34 @@ Check that you now have a folder called 'Bitcoingreen Files' under home/bitg (bi
 
 2. Next point your browser to https://www.amazon.de/clouddrive/share/FYC5wP8e282To2XxUkzxqzUNjzHQB8zrMIsGmT2KJXT to download the latest BITG Bootstrap files (this link is also available in the Links section of the Bitcoin Green Discord Channel - if you haven't already joined, you can do so here https://discord.gg/g3CFth)
 
-Save this to the Bitcoingreen Files folder as well.
+3. Save this to the Bitcoingreen Files folder as well.
 
-3. Extract the wallet zip file (right click on it, then select Extract Here). This should create a folder named bitcoingreen-1.1.0
+4. Extract the wallet zip file (right click on it, then select Extract Here). This should create a folder named bitcoingreen-1.1.0
 
-4. Open this folder, and then open the 'bin' folder. Inside the bin folder you will see 6 files. 
+5. Open this folder, and then open the 'bin' folder. Inside the bin folder you will see 6 files. 
 
-5. Double click on the file called bitcoingreen-qt to start the wallet install. Press the 'Execute' button when prompted. 
+6. Double click on the file called bitcoingreen-qt to start the wallet install. Press the 'Execute' button when prompted. 
 
-6. When prompted, select 'Use default data directory' (the path shown in grey should be /home/bitg/.bitcoingreen) – this is important for the backup script to work
+7. When prompted, select 'Use default data directory' (the path shown in grey should be /home/bitg/.bitcoingreen) – this is important for the backup script to work
 
-7. Click OK - the wallet will open, and you will see a message that says it is out of synch. 
+8. Click OK - the wallet will open, and you will see a message that says it is out of synch. 
 
-8. Without waiting for the wallet to synchronise, close the wallet down as we will now use the bootstrap to fast track the synchronisation process.
+9. Without waiting for the wallet to synchronise, close the wallet down as we will now use the bootstrap to fast track the synchronisation process.
 
 To do this, we need to access the bootstrap files we downloaded earlier.
 
 1. first extract the bootstrap files we downloaded earlier (right click on the bootstrap zip file and select Extract Here)
+
 2. double click the folder BITG_Bootstrap
+
 3. Click anywhere inside the folder, and press CTRL+A to select all files and folders, then CTRL+C to copy them
+
 4. Navigate to the /home/bitg/.bitcoingreen folder and press CTRL+V to paste them into this folder (NOTE the . before bitcongreen – this is the default data directory for the wallet)
+
 5. You will see a warning popup that says you are about to overwrite files. Make sure you check the 'Apply this option to all existing files' and then click the Overwrite button
+
 6. Go back to the home>bitg>Bitcoin Green>bitcoingreen-1.0.0>bin folder, and double click the bitcoingreen-qt file again to launch the wallet. Remember to press the 'Execute' button when prompted.
+
 7. The wallet will now launch and complete the synchronisation process.
 
 Once the wallet has synchronised with the blockchain, we need to do a little tightening up on securing the wallet itself.
@@ -99,7 +105,9 @@ Once the wallet has synchronised with the blockchain, we need to do a little tig
 First we will encrypt the wallet.
 
 1. Click Settings > Encrypt Wallet
+
 2. Enter an 8 word or more secure passphrase and click OK
+
 3. VERY NB!!! Make sure that you save this passphrase somewhere safe - without it you will never be able to get your coins back if you need to restore the wallet at some point in the future. I personally have a printout of this that I save in my safe, as well as a copy on a usb pendrive that I also keep in my safe, and another on a working drive that I can access whenever I need it.
 
 Next we need to configure the wallet. 
@@ -107,9 +115,13 @@ Next we need to configure the wallet.
 Go to Settings > Options
 
 1. Under the Main Tab, make sure that the Start Bitcoin Green on system login is ticked
+
 2. Click the Wallet Tab
+
 3. Tick Enable coin control features
+
 4. Tick Show Masternodes tab
+
 5. Click OK
 
 Next we need to lock the wallet
@@ -175,30 +187,34 @@ ls -lh $dest
 
 --end--
 
-6. Edit the line:
+6. Check the line:
 
 > backup_files="/home/bitg/.bitcoingreen/wallet.dat" 
 
-to make sure it is pointing to wallet.dat on your Pi (NOTE: if you had created the superuser bitg earlier, then this line should be correct already and you should not have to edit it).
+to make sure it is pointing to wallet.dat on your Pi.
 
-7. Edit the line
+> NOTE: if you had created the superuser bitg earlier, then this line should be correct already and you should not have to edit it.
 
-> dest="/media/bitg/BITGBackup". 
+7. Check the line:
 
-If you are following this guide, and named your USB volume BITGBackup, then this line will also be correct. 
+> dest="/media/bitg/BITGBackup"
+
+to see that the backup file is being writtten to the USB. 
+
+> NOTE: If you are following this guide, and named your USB volume BITGBackup, then this line will also be correct. 
 
 8. Press CTRL + X
 9. Press Y and then press Enter
 
 10. type
 
-sudo chmod u+x bitgbackup.sh
+> sudo chmod u+x bitgbackup.sh
 
 11. Press enter.
 
 12. now type
 
-sudo ./bitgbackup.sh
+> sudo ./bitgbackup.sh
 
 13. Press enter.
 
@@ -210,16 +226,16 @@ To automate this script, we must now setup a CRON job to manage it.
 
 1. Open the terminal and type the following
 
-sudo crontab -e
+> sudo crontab -e
 
 2. press enter
 3. if its the first time you are doing this, you must now choose a text editor - I suggest choose 2 (nano) and press enter
 4. scroll down to the bottom of the file
 5. type the following, each on a new line
-
+```
 59 11 * * * /home/bitg/bitgbackup.sh
 59 23 * * * /home/bitg/bitgbackup.sh
-
+```
 6. press CTRL + X
 7. type Y and press enter
 
@@ -255,7 +271,7 @@ Click on the server to see the details screen where you will see the IP number a
 
 Now we need to setup the masternode configuration file on the Pi wallet. Before we do so we need the following set of info. 
 
-NOTE: you need a seperate dataset for EACH MN you setup, and you MUST have already transferred your MN collateral to the MN address so that we have a transaction hash value.
+>NOTE: you need a seperate dataset for EACH MN you setup, and you MUST have already transferred your MN collateral to the MN address so that we have a transaction hash value.
 
 For each MN we need:
 
@@ -266,11 +282,11 @@ For each MN we need:
 
 Go to the bitg wallet on the Pi.
 
-To generate the masternode private key, go to Tools > debug console and type 'masternode genkey' (without the '') - press enter
+1. To generate the masternode private key, go to Tools > debug console and type '`masternode genkey`' (without the '') 
+2. Press enter
+3. copy and paste the result to a text editor
 
-copy and paste the result to a text editor
-
-NOTE: You must repeat this for each masternode you want to setup.
+>NOTE: You must repeat this for each masternode you want to setup.
 
 To generate the txid and output index, type 'masternode outputs' (without the '')
 
