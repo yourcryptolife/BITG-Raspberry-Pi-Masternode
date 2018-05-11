@@ -8,12 +8,14 @@ This setup has 2 benefits over using your laptop / home PC:
 
 > NOTE: this also assumes that you ensure the Pi is protected by following the instructions in this guide. 
 
-2. IN addition to masternode rewards, this setup allows you to earn staking rewards by leaving the Pi online 24/7, and keeping the wallet on the Pi open all the time - encrypted and locked, but open for staking.
+2. In addition to masternode rewards, this setup allows you to earn staking rewards by leaving the Pi online 24/7, and keeping the wallet on the Pi open all the time - encrypted and locked, but open for staking.
 
 This allows you to maximise the return of your masternode as you will earn both masternode rewards as well as staking rewards.
 
 > NOTE: If you find it helpful, donations are much appreciated :)
+
 > Bitcoin Green (BITG) **GXtS1QCPsMANpRDQa5xFwogfbxT42dy5uV**
+
 > Bitcoin (BTC) **1AxzU81tw8rBL9vRyGdhWL4s4C8BusffP7**
 
 **Before we get started, you will need the following items:**
