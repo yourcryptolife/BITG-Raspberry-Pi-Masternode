@@ -1,14 +1,16 @@
 ## Raspberry PI Bitcoin Green Cold Wallet Masternode Setup Guide ##
 
-This is a guide for setting up a Bitcoin Green Cold VPS Masternode using a Raspberry Pi3 to host the cold wallet & a Vultr Ubuntu 16.04 VPS to act as the MN server. 
+Mine cryptocurrencies economically. This is a guide for setting up a Bitcoin Green Cold VPS Masternode using a Raspberry Pi3 to host the cold wallet & a Vultr Ubuntu 16.04 VPS to act as the MN server.
 
-This setup has 2 benefits over using your laptop / home PC:
+You can see the currrent profitability of settting up a BITG Masternode to generate cryptocurrency here: https://masternodes.online/currencies/BITG/
 
-1. Safety as it stores your coins locally (on the Pi) and protects your masternode investment from being stolen by hackers should they manage to hack the VPS which is the masternodes public facing IP 
+This setup has 2 benefits over using your laptop / home PC to run the node:
 
-> NOTE: this also assumes that you ensure the Pi is protected by following the instructions in this guide. 
+1. Coin safety as it stores your coins locally (on the Pi) and protects your masternode investment from being stolen by hackers should they manage to hack the VPS which is the masternodes public facing IP address. 
 
-2. In addition to masternode rewards, this setup allows you to earn staking rewards by leaving the Pi online 24/7, and keeping the wallet on the Pi open all the time - encrypted and locked, but open for staking.
+> NOTE: this also assumes that you ensure the Pi is has some basic protection by following the instructions in this guide. 
+
+2. In addition to earning masternode rewards, this setup allows you to earn staking rewards by leaving the Pi online 24/7, and keeping the wallet on the Pi open all the time - encrypted and locked, but open for staking.
 
 This allows you to maximise the return of your masternode as you will earn both masternode rewards as well as staking rewards.
 
@@ -50,7 +52,7 @@ Once Raspbian has been installed and you have setup the wifi connection to the i
 Follow the instructions on this page - https://www.raspberrypi.org/documentation/configuration/security.md, **paying specific attention to:**
 
 1. change the default PI user password (don't delete the Pi user – we will need it later on – its a Pi thing ...)
-2. create a new superuser and password (NOTE: we recommend creating superuser 'bitg' to make this tutorial easier to follow and to allow the backup script to run without you having to make any edits)
+2. create a new superuser and password (NOTE: I recommend creating superuser 'bitg' to make this tutorial easier to follow and to allow the backup script to run without you having to make any edits)
 3. make sudo require a password
 4. update Raspbian to the latest version (follow the instructions here https://www.raspberrypi.org/documentation/raspbian/updating.md)
 5. install ufw firewall and enable it
@@ -96,7 +98,7 @@ First we will encrypt the wallet.
 
 1. Click Settings > Encrypt Wallet
 2. Enter an 8 word or more secure passphrase and click OK
-3. VERY NB!!! Make sure that you save this passphrase somewhere safe - without it you will never be able to get your coins back if you need to restore the wallet at some point in the future. I personally have a printout of this that I save in my safe, as well as a copy on a usb pendrive that I also keep in my safe, and another on a working drive that I can access whenever I need it.
+> **VERY NB!!! Make sure that you save this passphrase somewhere safe - without it you will never be able to get your coins back if you need to restore the wallet at some point in the future. I personally have a printout that I keep in my safe, as well as a copy on a usb pendrive that I can access whenever I need it.
 
 Next we need to configure the wallet. 
 
