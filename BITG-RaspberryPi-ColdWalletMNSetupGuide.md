@@ -8,7 +8,7 @@ This setup has 2 main benefits with regards to running the node:
 
 1. Coin safety. Because it stores your coins locally (on the Pi), it protects your masternode investment from being stolen by hackers should they manage to hack the VPS which is the masternodes public facing IP address.
 
-> NOTE: this also assumes that you ensure the Pi is has some basic protection by following the instructions in this guide. 
+> NOTE: this also assumes that you ensure the Pi has at least some basic protection by following the instructions in this guide. 
 
 2. In addition to earning masternode rewards, this setup allows you to earn staking rewards by leaving the Pi online 24/7, and keeping the wallet on the Pi open all the time - encrypted and locked, but open for staking.
 
