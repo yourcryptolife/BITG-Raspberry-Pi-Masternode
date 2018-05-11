@@ -10,7 +10,7 @@ This allows you to maximise the return of your masternode as you will earn both 
 
 > Donations are appreciated in BITG: GXtS1QCPsMANpRDQa5xFwogfbxT42dy5uV
 
-Before we get started, you will need the following items:
+**Before we get started, you will need the following items:**
 
 1. Raspberry Pi 3 to host your cold wallet and coins
 
@@ -33,7 +33,7 @@ OK, so let's get started.
 
 First we will setup & configure the Pi.
 
-ON YOUR PI
+## ON YOUR PI ##
 
 1. Connect your Pi to the monitor, USB keyboard and USB mouse.
 2. Insert the SD card with Noobs & power up the Pi.
@@ -43,7 +43,7 @@ For more info on how to get Noobs onto the SD card, and do the Raspbian install,
 
 Once Raspbian has been installed and you have setup the wifi connection to the internet, you must then secure the Pi.
 
-Follow the instructions on this page - https://www.raspberrypi.org/documentation/configuration/security.md, paying specific attention to:
+Follow the instructions on this page - https://www.raspberrypi.org/documentation/configuration/security.md, **paying specific attention to:**
 
 1. change the default PI user password (don't delete the Pi user – we will need it later on – its a Pi thing ...)
 2. create a new superuser and password (NOTE: we recommend creating superuser 'bitg' to make this tutorial easier to follow and to allow the backup script to run without you having to make any edits)
@@ -134,11 +134,11 @@ To keep the Pi running smoothly however, we want to automate this process, and e
 1. Open your terminal on the Pi
 2. type
 
-sudo nano bitgbackup.sh
+> sudo nano bitgbackup.sh
 
 3. enter your password and press enter
 
-4. nanno will now open.
+4. nano will now open.
 
 5. Copy and paste the following (everything BETWEEN –-start--- and –-end---) into nano:
 
@@ -175,13 +175,13 @@ ls -lh $dest
 
 6. Edit the line:
 
-backup_files="/home/bitg/.bitcoingreen/wallet.dat" 
+> backup_files="/home/bitg/.bitcoingreen/wallet.dat" 
 
 to make sure it is pointing to wallet.dat on your Pi (NOTE: if you had created the superuser bitg earlier, then this line should be correct already and you should not have to edit it).
 
 7. Edit the line
 
-dest="/media/bitg/BITGBackup". 
+> dest="/media/bitg/BITGBackup". 
 
 If you are following this guide, and named your USB volume BITGBackup, then this line will also be correct. 
 
