@@ -8,7 +8,7 @@ This setup also allows you to earn stake rewards by leaving the Pi online 24/7, 
 
 This allows you to maximise the return of your masternode as you will earn both masternode rewards as well as staking rewards.
 
-> Donations are appreciated in BITG: GXtS1QCPsMANpRDQa5xFwogfbxT42dy5uV
+> Donations are appreciated in BITG: **GXtS1QCPsMANpRDQa5xFwogfbxT42dy5uV**
 
 **Before we get started, you will need the following items:**
 
@@ -251,30 +251,35 @@ For each MN we need:
 1. masternode private key 
 2. transaction hash
 3. output index 
-4. your VPS servers IP number
+4. your VPS servers IP number and the port for your masternode (its recommended that you start with port 9333 (the bitg default port) and work upwards from that for each seperate node, ie 9334, 9335 etc.
 
 Go to the bitg wallet on the Pi.
 
-1. To generate the masternode private key, go to Tools > debug console and type '`masternode genkey`' (without the '') 
+1. To generate the masternode private key, go to Tools > debug console and type 
+
+> masternode genkey 
+
 2. Press enter
 3. copy and paste the result to a text editor
 
 > NOTE: You must repeat this for each masternode you want to setup.
 
-To generate the txid and output index, type 'masternode outputs' (without the '')
+To generate the txid and output index, type 
+
+> masternode outputs
 
 This will generate a set of txid & output index for each MN address that you sent coins to.
 
-copy and paste the result to a text editor
+Copy and paste the result to a text editor
 
-Now open the masternode configuration file, and enter the above information on a new line (without the [ ]'s). 
+Now open the masternode configuration file, and for each masternode you want to setup, enter all this information on a new line as follows
 
-[Alias] [ipnumber:port] [MasternodePrivateKey] [TransactionID] [Index]
+MasternodeAlias(eg. MN1) ipnumber:port(eg.125.254.124.251:9333) MasternodePrivateKey(eg.93HaYBVUCYjEMeeH1Y4sBGLALQZE1Yc1K64xiqgX37tGBDQL8Xg) TransactionID(eg.2bcd3c84c84f87eaa86e4e56834c92927a07f9e18718810b92e0d0324456a67c) Index(eg.1)
 
 eg.
 ```
 MN1 234.178.115.231:9333 93HaYBVUCYjEMeeH1Y4sBGLALQZE1Yc1K64xiqgX37tGBDQL8Xg 2bcd3c84c84f87eaa86e4e56834c92927a07f9e18718810b92e0d0324456a67c 1
-MN2 192.168.1.1:9334 76HGT56432aashjhYT65435jGHHJGkjhhi887JHKkh908KJkjhhFDS34jj 98dsd664463008097fdsfsdf90sssa198df77987896fs6676686sdd8567547h7j7j 1
+MN2 234.178.115.231:9334 76HGT56432aashjhYT65435jGHHJGkjhhi887JHKkh908KJkjhh 98dsd664463008097fdsfsdf90sssa198df77987896fs6676686sdd85675477j 1
 ```
 
 > NOTE: keep all the info for each MN on its own line
@@ -362,11 +367,11 @@ You are now setup to earn masternode rewards and staking rewards to your Raspber
 
 **Backup the SD Card**
 
-A good thing to do now is to make a disk image backup of the SD card, so that if it fails, you can easily restore it.
+A good thing to do now is to make a regular disk image backup of the SD card, so that if it fails, you can easily restore it.
 
-You can use the excellent raspbiBackup script here: https://www.linux-tips-and-tricks.de/en/quickstart-rbk
+You can use the excellent raspbiBackup script. Get instructions on how to use it here: https://www.linux-tips-and-tricks.de/en/quickstart-rbk
 
-You can also automate this to regularly backup your SD card image using a CRON job.
+> NOTE: You can also automate this to regularly backup your SD card image using a CRON job to your USB drive.
 
 **Setup Remote Access to the Pi with a GUI **
 
@@ -384,4 +389,4 @@ Thats IT!
 
 I hope you found this guide useful. If you did, any donations are appreciated.
 
-> Send your BITG donations to GXtS1QCPsMANpRDQa5xFwogfbxT42dy5uV
+> Send your BITG donations to **GXtS1QCPsMANpRDQa5xFwogfbxT42dy5uV**
