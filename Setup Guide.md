@@ -1,4 +1,4 @@
-# Raspberry PI Bitcoin Green Cold Wallet Masternode Setup Guide #
+## Raspberry PI Bitcoin Green Cold Wallet Masternode Setup Guide ##
 
 This is a guide for setting up a Bitcoin Green Cold VPS Masternode using a Raspberry Pi3 to host the cold wallet & a Vultr Ubuntu 16.04 VPS to act as the MN server. 
 
@@ -144,13 +144,14 @@ To keep the Pi running smoothly however, we want to automate this process, and e
 
 ---start---
 
-> #!/bin/bash`
-> ####################################
-> # Backup BITG Wallet.dat file to USB
-> ####################################
-> # What to backup
-> #backup_files="home/YOUR_USER/.bitcoingreen/wallet.dat"
-> backup_files="/home/bitgpi/.bitcoingreen/wallet.dat"
+```
+#!/bin/bash`
+####################################
+# Backup BITG Wallet.dat file to USB
+####################################
+# What to backup
+#backup_files="home/YOUR_USER/.bitcoingreen/wallet.dat"
+backup_files="/home/bitgpi/.bitcoingreen/wallet.dat"
 # Where to backup to
 # NOTE: make sure to name the USB drive 'BITGBackup'
 # path to the USB Drive for backups will be dest="/media/YOUR_USER/BITGBackup"
@@ -170,6 +171,7 @@ echo "BITG wallet.dat file backup finished"
 date
 # Long listing of files in $dest to check file sizes.
 ls -lh $dest
+```
 
 --end--
 
