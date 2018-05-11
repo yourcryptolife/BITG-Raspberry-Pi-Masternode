@@ -2,7 +2,7 @@
 
 Mine cryptocurrencies economically. This is a guide for setting up a Bitcoin Green Cold VPS Masternode using a Raspberry Pi3 to host the cold wallet & a Vultr Ubuntu 16.04 VPS to act as the MN server.
 
-You can see the currrent profitability of settting up a BITG Masternode to generate cryptocurrency here: https://masternodes.online/currencies/BITG/
+You can see the current profitability of setting up a BITG Masternode to generate cryptocurrency here: https://masternodes.online/currencies/BITG/
 
 This setup has 2 benefits over using your laptop / home PC to run the node:
 
