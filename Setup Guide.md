@@ -436,17 +436,15 @@ You can use the excellent raspbiBackup script. Get instructions on how to use it
 
 > NOTE: You can also automate this to regularly backup your SD card image using a CRON job to your USB drive.
 
-**Setup Remote Access to the Pi with a GUI **
+**Setup Remote Access to the Pi with TeamViewer**
 
-Setup Remote access so that you can manage your Pi from anywhere using Teamviewer. 
+Setup Remote access so that you can manage your Pi from anywhere using Teamviewer. I do this as I can then control my cold wallet from my phone using the Teamviewer app.
 
-I do this as I can then control my wallet from my phone using the Teamviewer app. 
+It also means you can easily manage multiple Pi's as your Pi mining setup grows :)
 
-It also means you can setup and manage multiple Pi's as your Pi mining setup grows :)
+Follow this tutorial to set TeamViewer up on Raspbian: https://m.youtube.com/watch?v=vr3Gf8vnKAg
 
-Follow this tutorial to set Teamviewer up on Raspbian: https://m.youtube.com/watch?v=vr3Gf8vnKAg
-
-Download eamviewer for Raspbian from this link: https://www.teamviewer.com/iotcontest/
+Download TeamViewer for Raspbian from this link: https://www.teamviewer.com/iotcontest/
 
 Thats IT!
 
