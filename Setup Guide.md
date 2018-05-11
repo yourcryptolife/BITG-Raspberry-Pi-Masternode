@@ -12,21 +12,24 @@ This setup has 2 benefits over using your laptop / home PC:
 
 This allows you to maximise the return of your masternode as you will earn both masternode rewards as well as staking rewards.
 
-> If you find it helpful, donations are appreciated in BITG :) **GXtS1QCPsMANpRDQa5xFwogfbxT42dy5uV**
+> NOTE: If you find it helpful, donations are much appreciated :)
+> Bitcoin Green (BITG) **GXtS1QCPsMANpRDQa5xFwogfbxT42dy5uV**
+> Bitcoin (BTC) **1AxzU81tw8rBL9vRyGdhWL4s4C8BusffP7**
 
 **Before we get started, you will need the following items:**
 
 1. Raspberry Pi 3 to host your cold wallet and coins
 2. At least an 8GB micro SD Card with Noobs installed
 3. A Pi power pack, a monitor, USB keyboard and USB mouse. If you have a VGA monitor, you'll need a VGA to HDMI converter as the Pi only has a HDMI slot.
-4. A USB drive to hold backups of your wallet.dat & a backup image of the Pi's SD card. I recommend at least a 16GB USB drive for this. For the purposes of this guide please name the USB volume BITGBackup as we will setup a shell script & CRON job to manage this automatically later on.
-5. A Linux VPS - in this guide we will use a $5 Vultr Ubuntu Linux server - get your Vultr server here https://www.vultr.com/?ref=7352503
+4. A USB drive to hold backups of your wallet.dat & a backup image of the Pi's SD card. I recommend at least a 16GB USB drive for this. 
+> NOTE: For the purposes of this guide please name the USB volume BITGBackup as we will setup a shell script & CRON job to manage this automatically later on.
+5. A Linux VPS - in this guide we will use a $5 Vultr Ubuntu Linux server - get your Vultr server here https://goo.gl/MYCGgv
 6. At least 2501 BITG (2500 collateral for the masternode, the balance to cover any transaction fees). 
 
 You can buy this on any of the following exchanges:
 
-Cryptopia: https://www.cryptopia.co.nz/Register?referrer=therocsta
-Coinexchange: https://www.coinexchange.io/?r=ce129210
+Cryptopia: https://goo.gl/J64np1
+Coinexchange: https://goo.gl/LS2WV2
 
 OK, so let's get started. 
 
@@ -385,12 +388,14 @@ I do this as I can then control my wallet from my phone using the Teamviewer app
 
 It also means you can setup and manage multiple Pi's as your Pi mining setup grows :)
 
-Follow this tutorial to set Teamviewer up: https://m.youtube.com/watch?v=vr3Gf8vnKAg
+Follow this tutorial to set Teamviewer up on Raspbian: https://m.youtube.com/watch?v=vr3Gf8vnKAg
 
-Download teamviewer for Raspbian from this link: https://www.teamviewer.com/iotcontest/
+Download eamviewer for Raspbian from this link: https://www.teamviewer.com/iotcontest/
 
 Thats IT!
 
 I hope you found this guide useful. If you did, any donations are appreciated.
 
-> Send your BITG donations to **GXtS1QCPsMANpRDQa5xFwogfbxT42dy5uV**
+> Send your BITG donations to 
+> Bitcoin Green (BITG) **GXtS1QCPsMANpRDQa5xFwogfbxT42dy5uV**
+> Bitcoin (BTC) **1AxzU81tw8rBL9vRyGdhWL4s4C8BusffP7**
