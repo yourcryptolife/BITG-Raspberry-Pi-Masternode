@@ -362,7 +362,7 @@ If at any time you made an error just enter CTRL + C and then you can restart th
 
 > ./setup.sh
 
-durinng setup, each masternode is given an alias and has its own control script in the ~/bin folder. To check on the status of each masternode, type
+During setup, each masternode is given an alias and has its own control script in the ~/bin folder. To check on the status of each masternode, type
 
 > cd bin
 
@@ -372,7 +372,25 @@ then type
 
 You will see the files available in the /bin folder. 
 
-You want to run one that looks like `bitcoingreen-cli_mn1.sh`
+You want to run one that looks like `bitcoingreen-cli_mn1.sh`. If you see this file, then the script has run successfully.
+
+Exit the terminal oon your Pi.
+
+Now go to your Vultr dashboard, and restart the VPS. This is required after installing all the server dependencies during setup.
+
+To do so, click the Servers tab on the left of your Vultr dashboard. Then click on the 3 dots ... to the right of the text that sayys 'Running' and then click Server Restart.
+
+Onnce the VPS is back up and running, you need to SSH into the VPS again from the terminal on your Pi.
+
+Once you are back in the VPS, type 
+
+> cd bin
+
+then type
+
+> bitcoingreend_mn1.sh -reindex
+
+This will restart the masternode.
 
 You can now check on the masternode synchronisation status by typing
 
