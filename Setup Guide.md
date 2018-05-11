@@ -130,7 +130,7 @@ To do a manual backup of the wallet.dat file, do the following:
 3. Name the file
 4. Click OK
 
-To keep the Pi running smoothly however, we want to automate this process, and ensure that the backup file is kept on the USB drive in case the SD card ever fails (which is common on the Pi).
+To keep the Pi running smoothly however, we want to automate this process, and ensure that the backup file is kept on the USB drive in case the SD card ever fails (which is common on the Pi). To do this we must create a shell script that can save a compressed and timestamped copy of our wallet.dat file twice a day.
 
 1. Open your terminal on the Pi
 2. type
