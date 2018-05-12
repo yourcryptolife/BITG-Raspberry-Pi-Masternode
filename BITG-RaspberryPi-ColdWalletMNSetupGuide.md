@@ -31,13 +31,16 @@ This allows you to optimise the return of your masternode as you will earn both 
 1. Raspberry Pi 3 to host your cold wallet and coins
 2. At least an 8GB micro SD Card with Noobs installed
 3. A Pi power pack, a monitor, USB keyboard and USB mouse. If you have a VGA monitor, you'll need a VGA to HDMI converter as the Pi only has a HDMI slot.
-4. A USB drive to hold backups of your wallet.dat & a backup image of the Pi's SD card. I recommend at least a 16GB USB drive for this. 
+4. A USB drive to hold backups of your wallet.dat & a backup image of the Pi's SD card. I recommend at least a 16GB USB drive for this.
+
+> NOTE: For the purposes of this guide please name the USB volume BITGBackup as we will setup a small shell script & CRON job to manage this automatically later on.
+
+5. Heat sinks for the Pi - we're mining cryptos remember :)
 
 ![Raspberry Pi Masternode Kit](../assets/pi3-kit.png)
 
-> NOTE: For the purposes of this guide please name the USB volume BITGBackup as we will setup a small shell script & CRON job to manage this automatically later on.
-5. A Linux VPS - in this guide we will use a $5 Vultr Ubuntu Linux server - ![get your Vultr server here](https://www.vultr.com/?ref=7352503)
-6. At least 2501 BITG (2500 collateral for the masternode, the balance to cover any transaction fees). 
+6. A Linux VPS - in this guide we will use a $5 Vultr Ubuntu 16.04 Linux VPS server. Don't have one yet? No worries - you can ![get your Vultr server here](https://www.vultr.com/?ref=7352503)
+7. At least 2501 BITG (2500 collateral for the masternode, the balance to cover any transaction fees). 
 
 You can buy this on any of the following exchanges:
 
