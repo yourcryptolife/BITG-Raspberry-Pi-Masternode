@@ -1,9 +1,8 @@
 ## Raspberry PI Bitcoin Green Cold Wallet Masternode Setup Guide ##
 
-This guide is a work in progress. Comments and donations in ![$BITG Bitcoin Green](https://masternodes.online/currencies/BITG/) are welcome: **GXtS1QCPsMANpRDQa5xFwogfbxT42dy5uV** :)
+This guide is a work in progress. Comments and donations in ![$BITG Bitcoin Green](https://masternodes.online/currencies/BITG/) are welcome: **GXtS1QCPsMANpRDQa5xFwogfbxT42dy5uV**
 
-**DISCLAIMER:**
-**This is not financial advice. Use at your own risk!**
+**DISCLAIMER: This is not financial advice. Use at your own risk!**
 
 >NOTE: While this guide covers setting up multiple masternodes on the Pi, I have only tested it with a single masternode (I can't afford more nodes at the moment). If you have the collateral to test additional nodes please do and let me know how it goes. I'd like to know if the Pi is affected.
 
