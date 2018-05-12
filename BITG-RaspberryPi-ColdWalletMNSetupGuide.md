@@ -10,11 +10,11 @@ I have just put the cold wallet setup on the Pi instead of my personal laptop. T
 
 This setup has 2 benefits with regards to running the node:
 
-1. Coin safety. Because it stores your coins locally (on the Pi), it protects your masternode investment from being stolen by hackers should they manage to hack the masternodes public facing IP address which is on the VPS server.
+1. **Coin Safety**. Because it stores your coins locally (on the Pi), it protects your masternode investment from being stolen by hackers should they manage to hack the masternodes public facing IP address which is on the VPS server.
 
 > NOTE: this also assumes that you ensure the Pi has at least some basic intrusion protection by following the instructions in this guide. It also assumes that you follow the backup instructions. Raspberry Pi's run off an SD card, and these are known to fail. I have included backup scripts for both the disc image of the SD card as well as backing up the wallet.dat file from the masternode wallet on the Pi. These are written to a seperate USB drive.
 
-2. In addition to earning masternode rewards, this setup allows you to earn staking rewards by leaving the Pi online 24/7, and keeping the wallet on the Pi open all the time - encrypted and locked, but open for staking.
+2. **Optimised ROI** In addition to earning masternode rewards, this setup allows you to earn staking rewards by leaving the Pi online 24/7, and keeping the wallet on the Pi open all the time - encrypted and locked, but open for staking.
 
 This allows you to maximise the return of your masternode as you will earn both masternode rewards as well as staking rewards.
 
