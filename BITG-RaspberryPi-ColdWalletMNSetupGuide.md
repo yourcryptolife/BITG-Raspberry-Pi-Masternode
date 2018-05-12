@@ -2,15 +2,17 @@
 
 This is a guide for setting up a Bitcoin Green Cold VPS Masternode using a Raspberry Pi3 to host the cold wallet & a Vultr Ubuntu 16.04 VPS to act as the MN server.
 
+It builds on top of the excellent cold wallet setup guide & masternode setup script provided by XeZZoR which you can get here https://goo.gl/S7fKdP
+
+I have just put the cold wallet setup on the Pi instead of my personal laptop. The masternode server setup is exactly the same as XeZZoR's guide, so if you are familiar with that, this should be easy to follow.
+
 **Use at your own risk!**
 
-You can see the current performance of a BITG Masternode here: https://masternodes.online/currencies/BITG/
+This setup has 2 benefits with regards to running the node:
 
-This setup has 2 main benefits with regards to running the node:
+1. Coin safety. Because it stores your coins locally (on the Pi), it protects your masternode investment from being stolen by hackers should they manage to hack the masternodes public facing IP address which is on the VPS server.
 
-1. Coin safety. Because it stores your coins locally (on the Pi), it protects your masternode investment from being stolen by hackers should they manage to hack the VPS which is the masternodes public facing IP address.
-
-> NOTE: this also assumes that you ensure the Pi has at least some basic protection by following the instructions in this guide. 
+> NOTE: this also assumes that you ensure the Pi has at least some basic intrusion protection by following the instructions in this guide. It also assumes that you follow the backup instructions. Raspberry Pi run so ff an SD card, and these are known to fail. I have included backup scripts for both the disc image of the SD card as well as backing up the wallet.dat file from the masternode wallet on the Pi. These are written to a USB drive.
 
 2. In addition to earning masternode rewards, this setup allows you to earn staking rewards by leaving the Pi online 24/7, and keeping the wallet on the Pi open all the time - encrypted and locked, but open for staking.
 
