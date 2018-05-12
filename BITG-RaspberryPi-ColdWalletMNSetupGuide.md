@@ -24,7 +24,7 @@ This setup has 2 benefits with regards to running the masternode:
 
 2. **Optimised ROI** In addition to earning masternode rewards, this setup allows you to earn staking rewards by leaving the Pi online 24/7, and keeping the wallet on the Pi open all the time - encrypted and locked, but open for staking.
 
-This allows you to optimise the return of your masternode as you will earn both masternode rewards as well as staking rewards.
+This allows you to optimise the return of your masternode as you will earn both masternode rewards and staking rewards.
 
 **Before we get started, you will need the following items:**
 
@@ -62,9 +62,10 @@ First we will setup & configure the Pi.
 2. Insert the SD card with Noobs & power up the Pi.
 3. Install Raspbian using Noobs
 4. Connect your PI to the internet
-For more info on how to get Noobs onto the SD card, and do the Raspbian install, go to https://www.raspberrypi.org/learning/software-guide/
 
-Once Raspbian has been installed and you have setup the wifi connection to the internet, you must then secure the Pi.
+For more info on how to get Noobs onto the SD card, and do the Raspbian install, follow the steps here: https://www.raspberrypi.org/learning/software-guide/
+
+Once Raspbian has been installed and you have setup the wifi connection to the internet, you must then do some basic security setups on the Pi.
 
 Follow the instructions on this page - https://www.raspberrypi.org/documentation/configuration/security.md, **paying specific attention to:**
 
@@ -80,7 +81,7 @@ Now login as the new superuser you created (if you followed instructions, this w
 
 Now its time to setup the cold wallet. Before we do so, we will need to download the correct wallet version for the Pi, as well as the BITG Bootstrap files to speed up the wallet synchronisation process. 
 
-First lets create a folder for all the Bitcoin Green files we will need to download. 
+First lets create a folder for all the Bitcoin Green files we will need to download.
 
 1. Open File Manager. 
 2. Click File > Create Folder
