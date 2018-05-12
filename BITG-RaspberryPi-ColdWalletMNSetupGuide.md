@@ -256,6 +256,8 @@ To create the VPS, ![go to Vultr](https://www.vultr.com/?ref=7352503) and do the
 
 Vultr will now create your VPS server. Give it a few minutes to do so, and then click the Servers tab on the left menu again to see your new server in the list.
 
+![go to Vultr](../assets/vultripaddress.png?raw=true)
+
 Click on the server to see the details screen where you will see the IP number assigned to this server. Make a note of this as we will need it for the next step.
 
 Now we need to setup the masternode configuration file on the Pi wallet. Before we do so we need the following set of info. 
