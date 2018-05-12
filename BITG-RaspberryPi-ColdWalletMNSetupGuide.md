@@ -2,21 +2,25 @@
 
 This is a guide for setting up a Bitcoin Green Cold VPS Masternode using a Raspberry Pi3 to host the cold wallet & a Vultr Ubuntu 16.04 VPS to act as the MN server.
 
-It builds on top of the excellent cold wallet setup guide & masternode setup script provided by XeZZoR which you can get here https://goo.gl/S7fKdP
+This guide is a work in progress. Comments and donations in ![$BITG Bitcoin Green are welcome :)](https://masternodes.online/currencies/BITG/)
 
-I have just put the cold wallet setup on the Pi instead of my personal laptop. The masternode server setup is exactly the same as XeZZoR's guide, so if you are familiar with that, this should be easy to follow.
+**DISCLAIMER: This is not financial advice. Use at your own risk!**
 
-**Use at your own risk!**
+##The Setup##
 
-This setup has 2 benefits with regards to running the node:
+This setup builds on top of the excellent Bitcoin Green cold wallet setup guide & masternode setup script provided by XeZZoR which you can get here https://goo.gl/S7fKdP
 
-1. **Coin Safety**. Because it stores your coins locally (on the Pi), it protects your masternode investment from being stolen by hackers should they manage to hack the masternodes public facing IP address which is on the VPS server.
+I have just setup the cold wallet on the Pi instead of my personal laptop. The VPS masternode server setup is exactly the same as XeZZoR's guide, so if you are familiar with that, this should be quite easy to follow.
+
+This setup has 2 benefits with regards to running the masternode:
+
+1. **Coin Safety**. Because it stores your coins locally (on the Pi), it protects your masternode investment from being stolen by hackers should they manage to hack the masternodes public facing IP address (the VPS server). There is no direct connection between the 2 machines.
 
 > NOTE: this also assumes that you ensure the Pi has at least some basic intrusion protection by following the instructions in this guide. It also assumes that you follow the backup instructions. Raspberry Pi's run off an SD card, and these are known to fail. I have included backup scripts for both the disc image of the SD card as well as backing up the wallet.dat file from the masternode wallet on the Pi. These are written to a seperate USB drive.
 
 2. **Optimised ROI** In addition to earning masternode rewards, this setup allows you to earn staking rewards by leaving the Pi online 24/7, and keeping the wallet on the Pi open all the time - encrypted and locked, but open for staking.
 
-This allows you to maximise the return of your masternode as you will earn both masternode rewards as well as staking rewards.
+This allows you to optimise the return of your masternode as you will earn both masternode rewards as well as staking rewards.
 
 **Before we get started, you will need the following items:**
 
@@ -25,7 +29,7 @@ This allows you to maximise the return of your masternode as you will earn both 
 3. A Pi power pack, a monitor, USB keyboard and USB mouse. If you have a VGA monitor, you'll need a VGA to HDMI converter as the Pi only has a HDMI slot.
 4. A USB drive to hold backups of your wallet.dat & a backup image of the Pi's SD card. I recommend at least a 16GB USB drive for this. 
 > NOTE: For the purposes of this guide please name the USB volume BITGBackup as we will setup a small shell script & CRON job to manage this automatically later on.
-5. A Linux VPS - in this guide we will use a $5 Vultr Ubuntu Linux server - ![get your Vultr server here](https://www.vultr.com/?ref=7352503) https://goo.gl/MYCGgv
+5. A Linux VPS - in this guide we will use a $5 Vultr Ubuntu Linux server - ![get your Vultr server here](https://www.vultr.com/?ref=7352503)
 6. At least 2501 BITG (2500 collateral for the masternode, the balance to cover any transaction fees). 
 
 You can buy this on any of the following exchanges:
