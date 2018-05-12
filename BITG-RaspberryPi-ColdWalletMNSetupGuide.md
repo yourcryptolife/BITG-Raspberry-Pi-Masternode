@@ -30,12 +30,12 @@ This allows you to optimise the return of your masternode as you will earn both 
 
 1. Raspberry Pi 3 to host your cold wallet and coins
 2. At least an 8GB micro SD Card with Noobs installed
-3. A Pi power pack, a monitor, USB keyboard and USB mouse. If you have a VGA monitor, you'll need a VGA to HDMI converter as the Pi only has a HDMI slot.
+3. A Pi power pack, a monitor, USB keyboard and USB mouse. If you have a VGA monitor, you'll need a VGA to HDMI converter as the Pi only has a HDMI slot. The keyboard, mouse and monitor are needed for the initial setup of the Pi. Once the Pi is configured and online, you can access it remotely via TeamViewer. 
 4. A USB drive to hold backups of your wallet.dat & a backup image of the Pi's SD card. I recommend at least a 16GB USB drive for this.
 
-> NOTE: For the purposes of this guide please name the USB volume BITGBackup as we will setup a small shell script & CRON job to manage this automatically later on.
+> NOTE: For the purposes of this guide please name the USB volume BITGBackup as we will setup small shell scripts & CRON jobs to manage this automatically later on.
 
-5. Heat sinks for the Pi - we're mining cryptos remember :)
+5. Heat sinks for the Pi to keep its chips as cool as possible - we're mining cryptos remember ;)
 
 ![Raspberry Pi Masternode Kit](../assets/pi3-kit.png)
 
@@ -50,7 +50,9 @@ Coinexchange: https://goo.gl/LS2WV2
 
 CryptoBridge: https://goo.gl/7nZGdk
 
-OK, so let's get started. 
+Alright. Got all your shit together? 
+
+Great! Let's get started :)
 
 First we will setup & configure the Pi.
 
