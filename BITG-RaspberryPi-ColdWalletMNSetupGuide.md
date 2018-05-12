@@ -347,7 +347,7 @@ and press enter
 
 Enter the password for the server (you can copy this from the Vultr dashboard – then use your mouse to right click and paste it into the terminal, and then press enter)
 
-![go to Vultr](../assets/vultrpwd.png?raw=true)
+![go to Vultr](../assets/vultrpword.png?raw=true)
 
 Once you are logged in to the server via SSH, type/copy & paste the following commands into your terminal -  this will fetch and run XeZZoR's automatic server installation & setup script.
 
@@ -403,7 +403,9 @@ Exit the terminal on your Pi.
 
 Now go to your Vultr dashboard, and restart the VPS. This is required after installing all the server dependencies during setup.
 
-To do so, click the Servers tab on the left of your Vultr dashboard. Then click on the 3 dots ... to the right of the text that sayys 'Running' and then click Server Restart.
+![go to Vultr](../assets/vultrserverrestart.png?raw=true)
+
+To do so, click the Servers tab on the left of your Vultr dashboard. Then click on the 3 dots ... to the right of the text that says 'Running' and then click Server Restart.
 
 Onnce the VPS is back up and running, you need to SSH into the VPS again from the terminal on your Pi.
 
