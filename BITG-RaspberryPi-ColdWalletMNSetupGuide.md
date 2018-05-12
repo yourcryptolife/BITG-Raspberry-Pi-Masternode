@@ -267,9 +267,11 @@ To create the VPS, ![open your account on Vultr](https://www.vultr.com/?ref=7352
 
 Vultr will now create your VPS server. Give it a few minutes to do so, and then click the Servers tab on the left menu again to see your new server in the list.
 
-![go to Vultr](../assets/vultripaddress.png?raw=true)
+![go to Vultr](../assets/vultrserverlist.png?raw=true)
 
 Click on the server to see the details screen where you will see the IP number assigned to this server. Make a note of this as we will need it for the next step.
+
+![go to Vultr](../assets/vultripaddress.png?raw=true)
 
 Now we need to setup the masternode configuration file on the Pi wallet. Before we do so we need the following set of info. 
 
@@ -345,6 +347,8 @@ and press enter
 
 Enter the password for the server (you can copy this from the Vultr dashboard – then use your mouse to right click and paste it into the terminal, and then press enter)
 
+![go to Vultr](../assets/vultrpwd.png?raw=true)
+
 Once you are logged in to the server via SSH, type/copy & paste the following commands into your terminal -  this will fetch and run XeZZoR's automatic server installation & setup script.
 
 > wget https://raw.githubusercontent.com/XeZZoR/scripts/master/BITG/setup.sh
@@ -395,7 +399,7 @@ You will see the files available in the /bin folder.
 
 You want to run one that looks like `bitcoingreen-cli_mn1.sh`. If you see this file, then the script has run successfully.
 
-Exit the terminal oon your Pi.
+Exit the terminal on your Pi.
 
 Now go to your Vultr dashboard, and restart the VPS. This is required after installing all the server dependencies during setup.
 
