@@ -238,20 +238,31 @@ First we must create the masternode wallet address(es) to send your masternode c
 
 Before we can continue, we must create the VPS so that we can have the VPS IP number as we will need this to create the masternode configuration file on the local wallet.
 
-To create the VPS, ![go to Vultr](https://www.vultr.com/?ref=7352503) and do the following steps
+To create the VPS, ![open your account on Vultr](https://www.vultr.com/?ref=7352503) and do the following steps
 
 1. Click the Servers tab on the left
 2. Click the blue + sign on the right to deploy a new server
+
 ![go to Vultr](../assets/vultr1.png?raw=true)
+
 3. Select a location (anywhere is fine)
+
 ![go to Vultr](../assets/vultr2.png?raw=true)
+
 4. Choose a server type – this must be Ubuntu 16.04
+
 ![go to Vultr](../assets/vultr3.png?raw=true)
+
 5. Choose a server size – we recommend the $5/month server
+
 ![go to Vultr](../assets/vultr4.png?raw=true)
+
 6. Scroll down to step 7 and give the server a hostname (like BITG or Bitcoin Green) and label (bitg masternode server)
+
 ![go to Vultr](../assets/vultr5.png?raw=true)
+
 7. Check that quantity is 1 and then click the Deploy Now button
+
 ![go to Vultr](../assets/vultr6.png?raw=true)
 
 Vultr will now create your VPS server. Give it a few minutes to do so, and then click the Servers tab on the left menu again to see your new server in the list.
