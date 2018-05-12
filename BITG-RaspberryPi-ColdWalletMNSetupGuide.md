@@ -1,14 +1,17 @@
 ## Raspberry PI Bitcoin Green Cold Wallet Masternode Setup Guide ##
 
-This is a guide for setting up a Bitcoin Green Cold VPS Masternode using a Raspberry Pi3 to host the cold wallet & a Vultr Ubuntu 16.04 VPS to act as the MN server.
+This guide is a work in progress. Comments and donations in ![$BITG Bitcoin Green](https://masternodes.online/currencies/BITG/) are welcome: **GXtS1QCPsMANpRDQa5xFwogfbxT42dy5uV** :)
 
-This guide is a work in progress. Comments and donations in ![$BITG Bitcoin Green are welcome :)](https://masternodes.online/currencies/BITG/)
+**DISCLAIMER:**
+**This is not financial advice. Use at your own risk!**
 
-**DISCLAIMER: This is not financial advice. Use at your own risk!**
+>NOTE: While this guide covers setting up multiple masternodes on the Pi, I have only tested it with a single masternode (I can't afford more nodes at the moment). If you have the collateral to test additional nodes please do and let me know how it goes. I'd like to know if the Pi is affected.
 
-##The Setup##
+## The Masternode Setup ##
 
-This setup builds on top of the excellent Bitcoin Green cold wallet setup guide & masternode setup script provided by XeZZoR which you can get here https://goo.gl/S7fKdP
+This is a guide for setting up a Bitcoin Green Cold VPS Masternode using a Raspberry Pi3 to host the cold wallet & a Vultr Ubuntu 16.04 VPS to act as the public facing MN server.
+
+The setup builds on top of the excellent Bitcoin Green cold wallet setup guide & masternode setup script provided by XeZZoR which you can get here https://goo.gl/S7fKdP
 
 I have just setup the cold wallet on the Pi instead of my personal laptop. The VPS masternode server setup is exactly the same as XeZZoR's guide, so if you are familiar with that, this should be quite easy to follow.
 
