@@ -22,8 +22,8 @@ This allows you to maximise the return of your masternode as you will earn both 
 2. At least an 8GB micro SD Card with Noobs installed
 3. A Pi power pack, a monitor, USB keyboard and USB mouse. If you have a VGA monitor, you'll need a VGA to HDMI converter as the Pi only has a HDMI slot.
 4. A USB drive to hold backups of your wallet.dat & a backup image of the Pi's SD card. I recommend at least a 16GB USB drive for this. 
-> NOTE: For the purposes of this guide please name the USB volume BITGBackup as we will setup a shell script & CRON job to manage this automatically later on.
-5. A Linux VPS - in this guide we will use a $5 Vultr Ubuntu Linux server - get your Vultr server here https://goo.gl/MYCGgv
+> NOTE: For the purposes of this guide please name the USB volume BITGBackup as we will setup a small shell script & CRON job to manage this automatically later on.
+5. A Linux VPS - in this guide we will use a $5 Vultr Ubuntu Linux server - ![get your Vultr server here](https://www.vultr.com/?ref=7352503) https://goo.gl/MYCGgv
 6. At least 2501 BITG (2500 collateral for the masternode, the balance to cover any transaction fees). 
 
 You can buy this on any of the following exchanges:
@@ -199,11 +199,11 @@ to see that the backup file is being writtten to the USB.
 
 13. Press enter.
 
-You should see the script push out some output as it backs up to the USB drive. Thiss should show you teh directory listing of the USB sp you can see if your backup file exists.
+You should see the script push out some output as it backs up to the USB drive. This should show you the directory listing of the USB so you can see if your backup file exists.
 
-Open the USB drive in file explorer and confirm that the script has generated the backup file by opening the baackup zip file to see that the wallet .dat file has been saved. 
+Open the USB drive in file explorer and confirm that the script has generated the backup file by opening the backup zip file to see that the wallet .dat file has been saved. 
 
-You should see a file that is called something like BITG-WalletBackup-201805081029.tgz – the number at the end is the date and time of the backup so that you can keep track of them
+You should see a file that is called something like BITG-WalletBackup-201805081029.tgz – the number at the end is the date and time of the backup so that you can keep track of them.
 
 To automate this script, we must now setup a CRON job to manage it.
 
@@ -213,7 +213,7 @@ To automate this script, we must now setup a CRON job to manage it.
 
 2. press enter
 3. if its the first time you are doing this, you must now choose a text editor - I suggest choose 2 (nano) and press enter
-4. scroll down to the bottom of the file
+4. navigate to the bottom of the file using your arrow keys
 5. type the following, each on a new line
 ```
 59 11 * * * /home/bitg/bitgbackup.sh
@@ -238,15 +238,21 @@ First we must create the masternode wallet address(es) to send your masternode c
 
 Before we can continue, we must create the VPS so that we can have the VPS IP number as we will need this to create the masternode configuration file on the local wallet.
 
-To create the VPS, go to Vultr (https://www.vultr.com/?ref=7352503) and do the following steps
+To create the VPS, ![go to Vultr](https://www.vultr.com/?ref=7352503) and do the following steps
 
 1. Click the Servers tab on the left
 2. Click the blue + sign on the right to deploy a new server
+![go to Vultr](assets/vultr1.png?raw=true)
 3. Select a location (anywhere is fine)
+![go to Vultr](assets/vultr2.png?raw=true)
 4. Choose a server type – this must be Ubuntu 16.04
+![go to Vultr](assets/vultr3.png?raw=true)
 5. Choose a server size – we recommend the $5/month server
+![go to Vultr](assets/vultr4.png?raw=true)
 6. Scroll down to step 7 and give the server a hostname (like BITG or Bitcoin Green) and label (bitg masternode server)
+![go to Vultr](assets/vultr5.png?raw=true)
 7. Check that quantity is 1 and then click the Deploy Now button
+![go to Vultr](assets/vultr6.png?raw=true)
 
 Vultr will now create your VPS server. Give it a few minutes to do so, and then click the Servers tab on the left menu again to see your new server in the list.
 
