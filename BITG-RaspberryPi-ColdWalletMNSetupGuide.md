@@ -1,8 +1,9 @@
 ## Raspberry PI Bitcoin Green Cold Wallet Masternode Setup Guide ##
 
-This guide is a work in progress. Feedback and donations in ![$BITG Bitcoin Green](https://masternodes.online/currencies/BITG/) are welcome :)
+This guide is a work in progress. Feedback and donations towards its upkeep are welcome :)
 
-> BITG Donation Address: **GXtS1QCPsMANpRDQa5xFwogfbxT42dy5uV**
+> ![$BITG Bitcoin Green](https://coinmarketcap.com/currencies/bitcoin-green/) Donation Address: **GXtS1QCPsMANpRDQa5xFwogfbxT42dy5uV**
+> ![$BTC Bitcoin](https://coinmarketcap.com/currencies/bitcoin/) Donation Address: **1AxzU81tw8rBL9vRyGdhWL4s4C8BusffP7**
 
 **DISCLAIMER: This is not financial advice. Use at your own risk!**
 
