@@ -366,7 +366,7 @@ and press enter
 
 Enter the password for the server (you can copy this from the Vultr dashboard – then use your mouse to right click and paste it into the terminal, and then press enter)
 
-![go to Vultr](../assets/vultrpword.png?raw=true)
+![](../assets/vultrpword.png?raw=true)
 
 Once you are logged in to the server via SSH, type/copy & paste the following commands into your terminal -  this will fetch and run XeZZoR's automatic server installation & setup script.
 
@@ -392,13 +392,21 @@ If you have already installed these, type `n` and press enter.
 
 > NOTE: Installing the dependencies can take a while. If you are prompted to proceed with operation type `y` and press enter.
 
+![](../assets/xezz2.png?raw=true)
+
 The script will get to a point where you must start configuring the masternodes. 
+
+![](../assets/xezz3.png?raw=true)
 
 This is where you need the masternode alias, VPS server IP and port, & masternode private key information that we used earlier.
 
 Enter the number of masternodes you want to setup, and then enter the relevant info for each node when prompted.
 
+![](../assets/xezz4.png?raw=true)
+
 For the RPC ports, you can enter any valid free ports – the script recommends you start at 17100 and work upwards from there for each masternode.
+
+![](../assets/xezz5.png?raw=true)
 
 Once the script has finished running, you will see a message that says 
 
@@ -424,7 +432,7 @@ Exit the terminal on your Pi.
 
 Now go to your Vultr dashboard, and restart the VPS. This is required after installing all the server dependencies during setup.
 
-![go to Vultr](../assets/vultrserverrestart.png?raw=true)
+![](../assets/vultrserverrestart.png?raw=true)
 
 To do so, click the Servers tab on the left of your Vultr dashboard. Then click on the 3 dots ... to the right of the text that says 'Running' and then click Server Restart.
 
@@ -443,6 +451,8 @@ This will restart the masternode.
 You can now check on the masternode synchronisation status by typing
 
 > bitcoingreen-cli_mn1.sh mnsync status
+
+![](../assets/xezz6.png?raw=true)
 
 Run this until you see it say `“IsBlockChainSynced”: true` then type
 
