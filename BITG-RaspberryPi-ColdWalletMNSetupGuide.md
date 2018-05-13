@@ -386,6 +386,8 @@ This will start the BITG masternode setup script.
 
 If its the first time you are using it, you will need to install all needed dependencies – in which case type `y` and press enter.
 
+![](../assets/xezz1.png?raw=true)
+
 If you have already installed these, type `n` and press enter.
 
 > NOTE: Installing the dependencies can take a while. If you are prompted to proceed with operation type `y` and press enter.
