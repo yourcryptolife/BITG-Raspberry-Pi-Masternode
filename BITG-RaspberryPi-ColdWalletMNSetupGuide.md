@@ -443,6 +443,12 @@ Onnce the VPS is back up and running, you need to SSH into the VPS again from th
 
 Once you are back in the VPS, type 
 
+> sudo su
+
+then enter your password
+
+Now that you are the root user, type
+
 > cd bin
 
 then type
