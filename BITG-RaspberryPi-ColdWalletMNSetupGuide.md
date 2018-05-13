@@ -56,9 +56,10 @@ Alright. Got all your shit together?
 
 Great! Let's get started :)
 
-First we will setup & configure the Pi.
 
 ## ON YOUR PI ##
+
+First we will setup & configure the Pi so that it can run smoothly.
 
 1. Connect your Pi to the monitor, USB keyboard and USB mouse.
 2. Insert the SD card with Noobs & power up the Pi.
@@ -264,35 +265,35 @@ To create the VPS, ![open your account on Vultr](https://www.vultr.com/?ref=7352
 1. Click the Servers tab on the left
 2. Click the blue + sign on the right to deploy a new server
 
-![go to Vultr](../assets/vultr1.png?raw=true)
+![](../assets/vultr1.png?raw=true)
 
 3. Select a location (anywhere is fine)
 
-![go to Vultr](../assets/vultr2.png?raw=true)
+![](../assets/vultr2.png?raw=true)
 
 4. Choose a server type – this must be Ubuntu 16.04
 
-![go to Vultr](../assets/vultr3.png?raw=true)
+![](../assets/vultr3.png?raw=true)
 
 5. Choose a server size – we recommend the $5/month server
 
-![go to Vultr](../assets/vultr4.png?raw=true)
+![](../assets/vultr4.png?raw=true)
 
 6. Scroll down to step 7 and give the server a hostname (like BITG or Bitcoin Green) and label (bitg masternode server)
 
-![go to Vultr](../assets/vultr5.png?raw=true)
+![](../assets/vultr5.png?raw=true)
 
 7. Check that quantity is 1 and then click the Deploy Now button
 
-![go to Vultr](../assets/vultr6.png?raw=true)
+![](../assets/vultr6.png?raw=true)
 
 Vultr will now create your VPS server. Give it a few minutes to do so, and then click the Servers tab on the left menu again to see your new server in the list.
 
-![go to Vultr](../assets/vultrserverlist.png?raw=true)
+![](../assets/vultrserverlist.png?raw=true)
 
 Click on the server to see the details screen where you will see the IP number assigned to this server. Make a note of this as we will need it for the next step.
 
-![go to Vultr](../assets/vultripaddress.png?raw=true)
+![](../assets/vultripaddress.png?raw=true)
 
 Now we need to setup the masternode configuration file on the Pi wallet. Before we do so we need the following set of info. 
 
