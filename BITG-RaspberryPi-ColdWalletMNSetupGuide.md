@@ -1,12 +1,12 @@
 ## Raspberry PI Bitcoin Green Cold Wallet Masternode Setup Guide ##
 
-This guide is a work in progress. Feedback to make it better and donations towards its upkeep are all welcome :)
+**DISCLAIMER: This is not financial advice. Use at your own risk!**
+
+This guide is a work in progress. Feedback to help improve it and donations towards its upkeep are all welcome :)
 
 > ![$BITG Bitcoin Green](https://coinmarketcap.com/currencies/bitcoin-green/) Donation Address: **GXtS1QCPsMANpRDQa5xFwogfbxT42dy5uV**
 
 > ![$BTC Bitcoin](https://coinmarketcap.com/currencies/bitcoin/) Donation Address: **1AxzU81tw8rBL9vRyGdhWL4s4C8BusffP7**
-
-**DISCLAIMER: This is not financial advice. Use at your own risk!**
 
 >NOTE: While this guide covers setting up multiple masternodes on the Pi, I have only tested it with a single masternode (I can't afford more nodes at the moment). If you have the collateral to test additional nodes please do and let me know how it goes. I'd like to know if the Pi is affected.
 
@@ -162,11 +162,13 @@ If you want to activate SSH you can look at the instructions on this page - http
 
 My Pi's run on my home network behind my router and so don't have a static IP. For remote access I just run Teamviewer for Rasbian (instructions on how to do this at the end of the guide).
 
-Now login as the new superuser you created (if you followed instructions, this will be user 'bitg' and you will be prompted for a password to login)
-
 ## SETUP THE WALLET ##
 
-Now its time to setup the cold wallet. Before we do so, we will need to download the correct wallet version for the Pi, as well as the BITG Bootstrap files to speed up the wallet synchronisation process. 
+After the Pi has rebooted, login as the new superuser you created (if you followed instructions, this will be user 'bitg' and you will be prompted for a password to login)
+
+Now its time to setup the cold controller wallet. This is the wallet that will hold the collateral for the masternode.
+
+Before we do so, we will need to download the correct wallet version for the Pi, as well as the BITG Bootstrap files to speed up the wallet synchronisation process. 
 
 First lets create a folder for all the Bitcoin Green files we will need to download.
 
