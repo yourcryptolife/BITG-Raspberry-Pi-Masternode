@@ -74,7 +74,7 @@ Once Raspbian has been installed and you have setup the wifi connection to the i
 
 1. First we will change the default Pi user password (don't delete the Pi user – we will need it later on)
 
-At the prompt type
+Open your terminal and type
 
 > sudo passwd
 
