@@ -61,7 +61,7 @@ Great! Let's get started :)
 
 First we will setup & configure the Pi so that it is properly secure and can run smoothly. Remember that this is where our coins will be kept, so making sure this is secure and properly set to backup regularly is critical.
 
-> NOTE: For eease of use, I use Noobs to install Rasbian. For more info on how to get Noobs onto the SD card, and do the Raspbian install, follow the steps here: https://www.raspberrypi.org/learning/software-guide/
+> NOTE: For ease of use, I recommend using Noobs to install Rasbian. For more info on how to get Noobs onto the SD card, and do the Raspbian install, follow the steps here: https://www.raspberrypi.org/learning/software-guide/
 
 Do the following to get the Pi online.
 
