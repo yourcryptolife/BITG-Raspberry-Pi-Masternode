@@ -317,15 +317,15 @@ Go to the bitg wallet on the Pi.
 
 > NOTE: You must repeat this for each masternode you want to setup.
 
-To generate the txid and output index, type 
+4. To generate the txid and output index, type 
 
 > masternode outputs
 
 This will generate a set of txid & output index for each MN address that you sent coins to.
 
-Copy and paste the result to a text editor
+5. Copy and paste the result to a text editor
 
-Now open the masternode configuration file, and for each masternode you want to setup, enter all this information on a new line as follows
+6. Now open the masternode configuration file, and for each masternode you want to setup, enter all this information on a new line as follows
 
 MasternodeAlias(eg. MN1) ipnumber:port(eg.125.254.124.251:9333) MasternodePrivateKey(eg.93HaYBVUCYjEMeeH1Y4sBGLALQZE1Yc1K64xiqgX37tGBDQL8Xg) TransactionID(eg.2bcd3c84c84f87eaa86e4e56834c92927a07f9e18718810b92e0d0324456a67c) Index(eg.1)
 
@@ -337,11 +337,11 @@ MN2 234.178.115.231:9334 76HGT56432aashjhYT65435jGHHJGkjhhi887JHKkh908KJkjhh 98d
 
 > NOTE: keep all the info for each MN on its own line
 
-Save and close the config file.
+7.Save and close the config file.
 
-Close the wallet.
+8. Close the wallet.
 
-Restart the wallet.
+9. Restart the wallet.
 
 OK so now we need to move across to setting up the VPS on Vultr.
 
@@ -351,27 +351,25 @@ OK so now we need to move across to setting up the VPS on Vultr.
 
 First we need to connect to the VPS server you created at Vultr.
 
-On your Pi, open the console
-
-Type 
+1. On your Pi, open the console and type 
 
 > sudo su
 
-Enter your password
+2. Enter your password
 
 You should now be root user (console should show a '#' instead of a '$')
 
-Now type 
+3. Now type 
 
 >ssh your_server_ip (eg. ssh 192.168.0.1) 
 
 and press enter
 
-Enter the password for the server (you can copy this from the Vultr dashboard – then use your mouse to right click and paste it into the terminal, and then press enter)
+4. Enter the password for the server (you can copy this from the Vultr dashboard – then use your mouse to right click and paste it into the terminal, and then press enter)
 
 ![](../assets/vultrpword.png?raw=true)
 
-Once you are logged in to the server via SSH, type/copy & paste the following commands into your terminal -  this will fetch and run XeZZoR's automatic server installation & setup script.
+5. Once you are logged in to the server via SSH, type/copy & paste the following commands into your terminal -  this will fetch and run XeZZoR's automatic server installation & setup script.
 
 > wget https://raw.githubusercontent.com/XeZZoR/scripts/master/BITG/setup.sh
 
@@ -387,11 +385,10 @@ press enter
 
 This will start the BITG masternode setup script. 
 
-If its the first time you are using it, you will need to install all needed dependencies – in which case type `y` and press enter.
+>NOTE: If its the first time you are using it, you will need to install all needed dependencies – in which case type `y` and press enter.
+> If you have already installed these, type `n` and press enter.
 
 ![](../assets/xezz1.png?raw=true)
-
-If you have already installed these, type `n` and press enter.
 
 > NOTE: Installing the dependencies can take a while. If you are prompted to proceed with operation type `y` and press enter.
 
@@ -403,11 +400,11 @@ The script will get to a point where you must start configuring the masternodes.
 
 This is where you need the masternode alias, VPS server IP and port, & masternode private key information that we used earlier.
 
-Enter the number of masternodes you want to setup, and then enter the relevant info for each node when prompted.
+1. Enter the number of masternodes you want to setup, and then enter the relevant info for each node when prompted.
 
 ![](../assets/xezz4.png?raw=true)
 
-For the RPC ports, you can enter any valid free ports – the script recommends you start at 17100 and work upwards from there for each masternode.
+2. For the RPC ports, you can enter any valid free ports – the script recommends you start at 17100 and work upwards from there for each masternode.
 
 ![](../assets/xezz5.png?raw=true)
 
@@ -431,7 +428,7 @@ You will see the files available in the /bin folder.
 
 You want to run one that looks like `bitcoingreen-cli_mn1.sh`. If you see this file, then the script has run successfully.
 
-Exit the terminal on your Pi.
+3. Exit the terminal on your Pi.
 
 Now go to your Vultr dashboard, and restart the VPS. This is required after installing all the server dependencies during setup.
 
@@ -441,33 +438,33 @@ To do so, click the Servers tab on the left of your Vultr dashboard. Then click 
 
 Onnce the VPS is back up and running, you need to SSH into the VPS again from the terminal on your Pi.
 
-Once you are back in the VPS, type 
+1. Once you are back in the VPS, type 
 
 > sudo su
 
 then enter your password
 
-Now that you are the root user, type
+2. Now that you are the root user, type
 
 > cd bin
 
-then type
+3. then type
 
 > bitcoingreend_mn1.sh -reindex
 
 This will restart the masternode.
 
-You can now check on the masternode synchronisation status by typing
+4. You can now check on the masternode synchronisation status by typing
 
 > bitcoingreen-cli_mn1.sh mnsync status
 
 ![](../assets/xezz6.png?raw=true)
 
-Run this until you see it say `“IsBlockChainSynced”: true` then type
+5. Run this until you see it say `“IsBlockChainSynced”: true` then type
 
 > bitcoingreen-cli_mn1.sh masternode status
 
-Run this until you see `“message”:Masternode successfully started”`.
+6. Run this until you see `“message”:Masternode successfully started”`.
 
 Now we must go back to the Pi to complete the final steps of switching on your masternode.
 
