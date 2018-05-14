@@ -57,57 +57,112 @@ Alright. Got all your stuff together?
 Great! Let's get started :)
 
 
-## ON YOUR PI ##
+## SETUP YOUR PI ##
 
-First we will setup & configure the Pi so that it can run smoothly.
+First we will setup & configure the Pi so that it is properly secure and can run smoothly. Remember that this is where our coins will be kept, so making sure this is secure and properly set to backup regularly is critical.
+
+> NOTE: For eease of use, I use Noobs to install Rasbian. For more info on how to get Noobs onto the SD card, and do the Raspbian install, follow the steps here: https://www.raspberrypi.org/learning/software-guide/
+
+Do the following to get the Pi online.
 
 1. Connect your Pi to the monitor, USB keyboard and USB mouse.
 2. Insert the SD card with Noobs & power up the Pi.
-3. Install Raspbian using Noobs
+3. Follow the on screen prompts to install Raspbian using Noobs
 4. Connect your PI to the internet
-
-For more info on how to get Noobs onto the SD card, and do the Raspbian install, follow the steps here: https://www.raspberrypi.org/learning/software-guide/
 
 Once Raspbian has been installed and you have setup the wifi connection to the internet, you must then do some basic security setups on the Pi.
 
-1. change the default PI user password (don't delete the Pi user – we will need it later on – its a Pi thing ...)
+1. First we will change the default Pi user password (don't delete the Pi user – we will need it later on)
 
-Type sudo 
+At the prompt type
 
-2. create a new superuser and password (NOTE: I recommend creating superuser 'bitg' to make this tutorial easier to follow and to allow the backup script to run without you having to make any edits)
+> sudo passwd
 
-3. make sudo require a password
+Enter the current password when asked.
+Enter the new password when asked.
+Confirm the new password when asked.
 
-4. update Raspbian to the latest version 
+2. Now create a new superuser and password (I recommend creating superuser 'bitg' to make this tutorial easier to follow and to allow the backup script to run without you having to make any edits). 
 
-Update your package list
+At the prompt type
+
+> sudo adduser bitg && adduser bitg sudo
+
+3. Force sudo to require a password
+
+At the prompt type
+
+> sudo nano /etc/sudoers.d/010_pi-nopasswd
+
+Now change the pi entry (or whichever usernames have superuser rights) to:
+
+pi ALL=(ALL) PASSWD: ALL
+
+Press ``CTRL + X`` to exit.
+
+Press ``y`` to save the file before closing it.
+
+4. Update Raspbian to the latest version 
+
+First, to update your package list type
 
 > sudo apt-get update
 
-Now update the packages
+Next to update the distro type 
 
 > sudo apt-get dist-upgrade
 
-Now remove unnecessary files after the upgrade to maximise space on the SD card.
+Now remove unnecessary files after the upgrade to maximise space on the SD card. 
+
+At the prompt type
 
 > sudo apt-get clean
+
 > sudo apt-get autoremove --purge
 
+You can save this page as a reference https://www.raspberrypi.org/documentation/raspbian/updating.md
 
+5. install ufw firewall and enable it by typing each of the following in succession,
 
+> sudo ufw default allow outgoing
 
+press enter
 
-(follow the instructions here https://www.raspberrypi.org/documentation/raspbian/updating.md)
+> sudo ufw default deny incoming
 
-5. install ufw firewall and enable it
+press enter
+
+> sudo ufw allow ssh/tcp
+
+press enter
+
+> sudo ufw limit ssh/tcp
+
+press enter
+
+> sudo ufw logging on
+
+press enter
+
+> sudo ufw enable
+
+press enter
+
+> sudo ufw status
+
+The firewall should say that status is active.
+
+After you have performed the above steps, go to Shutdown > Reboot
+
+**A Note onn SSH**
 
 If you want to activate SSH you can look at the instructions on this page - https://www.raspberrypi.org/documentation/configuration/security.md. 
 
 My Pi's run on my home network behind my router and so don't have a static IP. For remote access I just run Teamviewer for Rasbian (instructions on how to do this at the end of the guide).
 
-After you have performed the above steps, go to Shutdown > Reboot
-
 Now login as the new superuser you created (if you followed instructions, this will be user 'bitg' and you will be prompted for a password to login)
+
+## SETUP THE WALLET ##
 
 Now its time to setup the cold wallet. Before we do so, we will need to download the correct wallet version for the Pi, as well as the BITG Bootstrap files to speed up the wallet synchronisation process. 
 
@@ -146,7 +201,9 @@ First we will encrypt the wallet.
 
 1. Click Settings > Encrypt Wallet
 2. Enter an 8 word or more secure passphrase and click OK
-> **VERY NB!!! Make sure that you save this passphrase somewhere safe - without it you will never be able to get your coins back if you need to restore the wallet at some point in the future. I personally have a printout that I keep in my safe, as well as a copy on a usb pendrive that I can access whenever I need it.
+
+> **THIS IS VERY IMPORTANT!!!**
+> **Make sure that you save this passphrase somewhere safe - without it you will never be able to get your coins back if you need to restore the wallet at some point in the future. I personally have a printout that I keep in my safe, as well as a copy on a usb pendrive that I can access whenever I need it.**
 
 Next we need to configure the wallet. 
 
