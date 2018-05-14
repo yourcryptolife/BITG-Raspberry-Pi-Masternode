@@ -98,6 +98,8 @@ Now change the pi entry (or whichever usernames have superuser rights) to:
 
 pi ALL=(ALL) PASSWD: ALL
 
+eg.: ``bitg ALL=(ALL) PASSWD: ALL``
+
 Press ``CTRL + X`` to exit.
 
 Press ``y`` to save the file before closing it.
