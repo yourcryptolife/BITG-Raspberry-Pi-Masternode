@@ -52,7 +52,7 @@ Coinexchange: https://goo.gl/LS2WV2
 
 CryptoBridge: https://goo.gl/7nZGdk
 
-Alright. Got all your shit together? 
+Alright. Got all your stuff together? 
 
 Great! Let's get started :)
 
@@ -70,13 +70,40 @@ For more info on how to get Noobs onto the SD card, and do the Raspbian install,
 
 Once Raspbian has been installed and you have setup the wifi connection to the internet, you must then do some basic security setups on the Pi.
 
-Follow the instructions on this page - https://www.raspberrypi.org/documentation/configuration/security.md, **paying specific attention to:**
-
 1. change the default PI user password (don't delete the Pi user – we will need it later on – its a Pi thing ...)
+
+Type sudo 
+
 2. create a new superuser and password (NOTE: I recommend creating superuser 'bitg' to make this tutorial easier to follow and to allow the backup script to run without you having to make any edits)
+
 3. make sudo require a password
-4. update Raspbian to the latest version (follow the instructions here https://www.raspberrypi.org/documentation/raspbian/updating.md)
+
+4. update Raspbian to the latest version 
+
+Update your package list
+
+> sudo apt-get update
+
+Now update the packages
+
+> sudo apt-get dist-upgrade
+
+Now remove unnecessary files after the upgrade to maximise space on the SD card.
+
+> sudo apt-get clean
+> sudo apt-get autoremove --purge
+
+
+
+
+
+(follow the instructions here https://www.raspberrypi.org/documentation/raspbian/updating.md)
+
 5. install ufw firewall and enable it
+
+If you want to activate SSH you can look at the instructions on this page - https://www.raspberrypi.org/documentation/configuration/security.md. 
+
+My Pi's run on my home network behind my router and so don't have a static IP. For remote access I just run Teamviewer for Rasbian (instructions on how to do this at the end of the guide).
 
 After you have performed the above steps, go to Shutdown > Reboot
 
