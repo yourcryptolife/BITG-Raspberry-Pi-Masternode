@@ -76,7 +76,7 @@ Once Raspbian has been installed and you have setup the wifi connection to the i
 
 Open your terminal and type
 
-> sudo passwd
+``sudo passwd``
 
 Enter the current password when asked.
 Enter the new password when asked.
@@ -86,17 +86,17 @@ Confirm the new password when asked.
 
 At the prompt type
 
-> sudo adduser bitg && adduser bitg sudo
+``sudo adduser bitg && adduser bitg sudo``
 
 3. Force sudo to require a password
 
 At the prompt type
 
-> sudo nano /etc/sudoers.d/010_pi-nopasswd
+``sudo nano /etc/sudoers.d/010_pi-nopasswd``
 
 Now change the pi entry (or whichever usernames have superuser rights) to:
 
-pi ALL=(ALL) PASSWD: ALL
+``pi ALL=(ALL) PASSWD: ALL``
 
 eg.: ``bitg ALL=(ALL) PASSWD: ALL``
 
@@ -108,61 +108,42 @@ Press ``y`` to save the file before closing it.
 
 First, to update your package list type
 
-> sudo apt-get update
+``sudo apt-get update``
 
 Next to update the distro type 
 
-> sudo apt-get dist-upgrade
+``sudo apt-get dist-upgrade``
 
 Now remove unnecessary files after the upgrade to maximise space on the SD card. 
 
 At the prompt type
 
-> sudo apt-get clean
-
-> sudo apt-get autoremove --purge
+``sudo apt-get clean
+sudo apt-get autoremove --purge``
 
 You can save this page as a reference https://www.raspberrypi.org/documentation/raspbian/updating.md
 
-5. install ufw firewall and enable it by typing each of the following in succession,
+5. install ufw firewall and enable it by typing each of the following in succession (press enter after each line),
 
-> sudo ufw default allow outgoing
-
-press enter
-
-> sudo ufw default deny incoming
-
-press enter
-
-> sudo ufw allow ssh/tcp
-
-press enter
-
-> sudo ufw limit ssh/tcp
-
-press enter
-
-> sudo ufw logging on
-
-press enter
-
-> sudo ufw enable
-
-press enter
-
-> sudo ufw status
+``sudo ufw default allow outgoing
+sudo ufw default deny incoming
+sudo ufw allow ssh/tcp
+sudo ufw limit ssh/tcp
+sudo ufw logging on
+sudo ufw enable
+sudo ufw status``
 
 The firewall should say that status is active.
 
 After you have performed the above steps, go to Shutdown > Reboot
 
-**A Note onn SSH**
+**A Note on SSH**
 
 If you want to activate SSH you can look at the instructions on this page - https://www.raspberrypi.org/documentation/configuration/security.md. 
 
 My Pi's run on my home network behind my router and so don't have a static IP. For remote access I just run Teamviewer for Rasbian (instructions on how to do this at the end of the guide).
 
-## SETUP THE WALLET ##
+## SETUP THE CONTROLLER (COLD) WALLET ##
 
 After the Pi has rebooted, login as the new superuser you created (if you followed instructions, this will be user 'bitg' and you will be prompted for a password to login)
 
@@ -241,11 +222,11 @@ To keep the Pi running smoothly however, we want to automate this process, and e
 1. Open your terminal on the Pi
 2. type
 
-> sudo nano bitgbackup.sh
+``sudo nano bitgbackup.sh``
 
 3. enter your password and press enter
 4. nano will now open.
-5. Copy and paste the following (everything BETWEEN –-start--- and –-end---) into nano:
+5. Copy and paste (right click > paste) the following (everything BETWEEN –-start--- and –-end---) into nano:
 
 ---start---
 
@@ -282,7 +263,7 @@ ls -lh $dest
 
 6. Check the line:
 
-> backup_files="/home/bitg/.bitcoingreen/wallet.dat" 
+``backup_files="/home/bitg/.bitcoingreen/wallet.dat" ``
 
 to make sure it is pointing to wallet.dat on your Pi.
 
@@ -290,22 +271,22 @@ to make sure it is pointing to wallet.dat on your Pi.
 
 7. Check the line:
 
-> dest="/media/bitg/BITGBackup"
+``dest="/media/bitg/BITGBackup" ``
 
 to see that the backup file is being writtten to the USB. 
 
 > NOTE: If you are following this guide, and named your USB volume BITGBackup, then this line will also be correct. 
 
-8. Press CTRL + X
-9. Press Y and then press Enter
+8. Press ``CTRL + X``
+9. Press ``Y`` and then press Enter
 10. type
 
-> sudo chmod u+x bitgbackup.sh
+``sudo chmod u+x bitgbackup.sh``
 
 11. Press enter.
 12. now type
 
-> sudo ./bitgbackup.sh
+``sudo ./bitgbackup.sh``
 
 13. Press enter.
 
@@ -319,7 +300,7 @@ To automate this script, we must now setup a CRON job to manage it.
 
 1. Open the terminal and type the following
 
-> sudo crontab -e
+``sudo crontab -e``
 
 2. press enter
 3. if its the first time you are doing this, you must now choose a text editor - I suggest choose 2 (nano) and press enter
@@ -329,10 +310,12 @@ To automate this script, we must now setup a CRON job to manage it.
 59 11 * * * /home/bitg/bitgbackup.sh
 59 23 * * * /home/bitg/bitgbackup.sh
 ```
-6. press CTRL + X
-7. type Y and press enter
+6. press ``CTRL + X``
+7. type ``Y`` and press enter
 
 The above will now run the backup shell script every day at 11:59 and again at 23:59 and will save a zipped copy of the wallet.dat file to the USB drive. Make sure to check on this regularly and make additional backups off this USB drive.
+
+## SETUP THE MASTERNODE - THE CONTROLLER WALLET ##
 
 Now its time to start setting up the Masternode.
 
@@ -398,22 +381,24 @@ Go to the bitg wallet on the Pi.
 
 1. To generate the masternode private key, go to Tools > debug console and type 
 
-> masternode genkey 
+``masternode genkey ``
 
 2. Press enter
-3. copy and paste the result to a text editor
+3. Copy and paste the result to a text editor
 
 > NOTE: You must repeat this for each masternode you want to setup.
 
 4. To generate the txid and output index, type 
 
-> masternode outputs
+``masternode outputs``
+
+5. Press enter
 
 This will generate a set of txid & output index for each MN address that you sent coins to.
 
-5. Copy and paste the result to a text editor
+6. Copy and paste the result to a text editor
 
-6. Now open the masternode configuration file, and for each masternode you want to setup, enter all this information on a new line as follows
+7. Now open the masternode configuration file, and for each masternode you want to setup, enter all this information on a new line as follows
 
 MasternodeAlias(eg. MN1) ipnumber:port(eg.125.254.124.251:9333) MasternodePrivateKey(eg.93HaYBVUCYjEMeeH1Y4sBGLALQZE1Yc1K64xiqgX37tGBDQL8Xg) TransactionID(eg.2bcd3c84c84f87eaa86e4e56834c92927a07f9e18718810b92e0d0324456a67c) Index(eg.1)
 
@@ -425,15 +410,15 @@ MN2 234.178.115.231:9334 76HGT56432aashjhYT65435jGHHJGkjhhi887JHKkh908KJkjhh 98d
 
 > NOTE: keep all the info for each MN on its own line
 
-7.Save and close the config file.
+8.Save and close the config file.
 
-8. Close the wallet.
+9. Close the wallet.
 
-9. Restart the wallet.
+10. Restart the wallet.
 
 OK so now we need to move across to setting up the VPS on Vultr.
 
-## ON THE VPS ##
+## SETUP THE MASTERNODE - ON THE VPS ##
 
 > NOTE: This section is based on the excellent cold wallet setup guide & script provided by XeZZoR which you can get here https://goo.gl/S7fKdP  
 
@@ -441,7 +426,7 @@ First we need to connect to the VPS server you created at Vultr.
 
 1. On your Pi, open the console and type 
 
-> sudo su
+``sudo su``
 
 2. Enter your password
 
@@ -449,7 +434,7 @@ You should now be root user (console should show a '#' instead of a '$')
 
 3. Now type 
 
->ssh your_server_ip (eg. ssh 192.168.0.1) 
+`` ssh your_server_ip`` (eg. ssh 192.168.0.1) 
 
 and press enter
 
@@ -459,15 +444,15 @@ and press enter
 
 5. Once you are logged in to the server via SSH, type/copy & paste the following commands into your terminal -  this will fetch and run XeZZoR's automatic server installation & setup script.
 
-> wget https://raw.githubusercontent.com/XeZZoR/scripts/master/BITG/setup.sh
+``wget https://raw.githubusercontent.com/XeZZoR/scripts/master/BITG/setup.sh``
 
-press enter
+press enter then at the next prompt type
 
-> chmod 755 setup.sh
+``chmod 755 setup.sh``
 
-press enter 
+press enter then at the next prompt type
 
-> ./setup.sh
+``./setup.sh``
 
 press enter
 
@@ -498,23 +483,23 @@ This is where you need the masternode alias, VPS server IP and port, & masternod
 
 Once the script has finished running, you will see a message that says 
 
-`Bitcoin Green server starting.`
+``Bitcoin Green server starting.``
 
 If at any time you made an error just enter CTRL + C and then you can restart the script by typing
 
-> ./setup.sh
+``./setup.sh``
 
 During setup, each masternode is given an alias and has its own control script in the ~/bin folder. To check on the status of each masternode, type
 
-> cd bin
+``cd bin``
 
 then type 
 
-> ls
+``ls``
 
 You will see the files available in the /bin folder. 
 
-You want to run one that looks like `bitcoingreen-cli_mn1.sh`. If you see this file, then the script has run successfully.
+You want to run one that looks like ``bitcoingreen-cli_mn1.sh``. If you see this file, then the script has run successfully.
 
 3. Exit the terminal on your Pi.
 
@@ -528,35 +513,35 @@ Onnce the VPS is back up and running, you need to SSH into the VPS again from th
 
 1. Once you are back in the VPS, type 
 
-> sudo su
+``sudo su``
 
 then enter your password
 
 2. Now that you are the root user, type
 
-> cd bin
+``cd bin``
 
 3. then type
 
-> bitcoingreend_mn1.sh -reindex
+``bitcoingreend_mn1.sh -reindex``
 
-This will restart the masternode.
+This will restart the masternode server on the VPS.
 
 4. You can now check on the masternode synchronisation status by typing
 
-> bitcoingreen-cli_mn1.sh mnsync status
+``bitcoingreen-cli_mn1.sh mnsync status``
 
 ![](../assets/xezz6.png?raw=true)
 
-5. Run this until you see it say `“IsBlockChainSynced”: true` then type
+5. Run this until you see it say ``“IsBlockChainSynced”: true`` then type
 
-> bitcoingreen-cli_mn1.sh masternode status
+``bitcoingreen-cli_mn1.sh masternode status``
 
-6. Run this until you see `“message”:Masternode successfully started”`.
+6. Run this until you see ``“message”:Masternode successfully started”``.
 
 Now we must go back to the Pi to complete the final steps of switching on your masternode.
 
-## ON YOUR PI ##
+## START THE MASTERNODE - ON YOUR PI ##
 
 1. On the Pi, open the wallet and let it synchronise
 2. Unlock the wallet by going to Settings > Unlock wallet – enter your passphrase
