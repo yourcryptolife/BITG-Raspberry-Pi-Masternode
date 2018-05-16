@@ -8,7 +8,7 @@ This guide is a work in progress. Feedback to help improve it and donations towa
 
 > ![$BTC Bitcoin](https://coinmarketcap.com/currencies/bitcoin/) Donation Address: **1AxzU81tw8rBL9vRyGdhWL4s4C8BusffP7**
 
->NOTE: While this guide covers setting up multiple masternodes on the Pi, I have only tested it with a single masternode (I can't afford more nodes at the moment). If you have the collateral to test additional nodes please do and let me know how it goes. I'd like to know if the Pi is affected.
+>NOTE: While this guide covers setting up multiple masternodes on the Pi, I have only tested it with a single BITG masternode (I can't afford more nodes at the moment). If you have the collateral to test additional nodes please do so and let me know how it goes. I'd like to know if the Pi is affected.
 
 ## Overview Of The Masternode Setup ##
 
@@ -155,6 +155,15 @@ sudo ufw status
 
 The firewall should say that status is active.
 
+7. Now we will install fail2ban. What this app does is ban people that keep entering the wrong password when trying to login via ssh, i.e brute force attacks. Remember to press enter after each line
+
+```
+sudo apt-get install fail2ban
+sudo systemctl enable fail2ban
+sudo systemctl start fail2ban
+```
+
+After you have performed the above steps, go to Shutdown > Reboot
 After you have performed the above steps, go to Shutdown > Reboot
 
 **A Note on SSH**
@@ -195,10 +204,11 @@ To do this, we need to access the bootstrap files we downloaded earlier.
 1. first extract the bootstrap files we downloaded earlier (right click on the bootstrap zip file and select Extract Here)
 2. double click the folder BITG_Bootstrap
 3. Click anywhere inside the folder, and press CTRL+A to select all files and folders, then CTRL+C to copy them
-4. Navigate to the /home/bitg/.bitcoingreen folder and press CTRL+V to paste them into this folder (NOTE the . before bitcongreen – this is the default data directory for the wallet)
-5. You will see a warning popup that says you are about to overwrite files. Make sure you check the 'Apply this option to all existing files' and then click the Overwrite button
-6. Go back to the home>bitg>Bitcoin Green>bitcoingreen-1.0.0>bin folder, and double click the bitcoingreen-qt file again to launch the wallet. Remember to press the 'Execute' button when prompted.
-7. The wallet will now launch and complete the synchronisation process.
+4. Navigate to the /home/bitg/ folder. Click anywhere in the folder and press ``CTRL + H`` This will reveal the hidden folders.
+5. Open the .bitcoingreen folder, click anywhere inside it and then press CTRL+V to paste them into this folder (NOTE the . before bitcongreen – this is the default data directory for the wallet)
+6. You will see a warning popup that says you are about to overwrite files. Make sure you check the 'Apply this option to all existing files' and then click the Overwrite button
+7. Go back to the home>bitg>Bitcoin Green>bitcoingreen-1.0.0>bin folder, and double click the bitcoingreen-qt file again to launch the wallet. Remember to press the 'Execute' button when prompted.
+8. The wallet will now launch and complete the synchronisation process.
 
 Once the wallet has synchronised with the blockchain, we need to do a little tightening up on securing the wallet itself.
 
@@ -257,11 +267,11 @@ To keep the Pi running smoothly however, we want to automate this process, and e
 ####################################
 # What to backup
 #backup_files="home/YOUR_USER/.bitcoingreen/wallet.dat"
-backup_files="/home/bitgpi/.bitcoingreen/wallet.dat"
+backup_files="/home/bitg/.bitcoingreen/wallet.dat"
 # Where to backup to
 # NOTE: make sure to name the USB drive 'BITGBackup'
 # path to the USB Drive for backups will be dest="/media/YOUR_USER/BITGBackup"
-dest="/media/bitgpi/BITGBACKUP"
+dest="/media/bitg/BITGBACKUP"
 # Create archive filename.
 day=$(date +"%Y%m%d%H%M")
 archive_file="BITG-WalletBackup-$day.tgz"
