@@ -118,20 +118,24 @@ Now remove unnecessary files after the upgrade to maximise space on the SD card.
 
 At the prompt type
 
-``sudo apt-get clean
-sudo apt-get autoremove --purge``
+```
+sudo apt-get clean
+sudo apt-get autoremove --purge
+```
 
 You can save this page as a reference https://www.raspberrypi.org/documentation/raspbian/updating.md
 
 5. install ufw firewall and enable it by typing each of the following in succession (press enter after each line),
 
-``sudo ufw default allow outgoing
+```
+sudo ufw default allow outgoing
 sudo ufw default deny incoming
 sudo ufw allow ssh/tcp
 sudo ufw limit ssh/tcp
 sudo ufw logging on
 sudo ufw enable
-sudo ufw status``
+sudo ufw status
+```
 
 The firewall should say that status is active.
 
