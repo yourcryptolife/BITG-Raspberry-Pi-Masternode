@@ -12,11 +12,17 @@ This guide is a work in progress. Feedback to help improve it and donations towa
 
 ## Overview Of The Masternode Setup ##
 
-This is a guide for setting up a Bitcoin Green Cold VPS Masternode using a Raspberry Pi3 to host the cold wallet & a Vultr Ubuntu 16.04 VPS to act as the public facing MN server.
+This is a guide for setting up a Bitcoin Green Cold VPS Masternode using a Raspberry Pi3 to host the cold wallet & a Vultr Ubuntu 16.04 VPS to act as the public facing MN server. I decided to try this approach as I wanted to be able to keep my cold wallet open 24/7 so that it could earn staking rewards on top of the masternode rewards. 
 
-The setup builds on top of the excellent Bitcoin Green cold wallet setup guide & masternode setup script provided by XeZZoR which you can get here https://goo.gl/S7fKdP
+To do this on my personal laptop wouldn't work, and as there was a Pi wallet released for BITG, I decided to see how it would work.
+
+The setup builds on top of the Bitcoin Green cold wallet setup guide & masternode setup script provided by XeZZoR which you can get here https://goo.gl/S7fKdP
 
 I have just setup the cold wallet on the Pi instead of my personal laptop. The VPS masternode server setup is exactly the same as XeZZoR's guide, so if you are familiar with that, this should be quite easy to follow.
+
+Using the Pi for this does come with some added things to take care of. It runs off an SD card, and these are known to fail more regularly than your standard HDD, so backups are VERY IMPORTANT! 
+
+We also need to do some basic security to the Pi. Mine run behind my home routers firewall, but I do secure them by running some standard security instructions.
 
 This setup has 2 benefits with regards to running the masternode:
 
@@ -70,11 +76,21 @@ Do the following to get the Pi online.
 3. Follow the on screen prompts to install Raspbian using Noobs
 4. Connect your PI to the internet
 
-Once Raspbian has been installed and you have setup the wifi connection to the internet, you must then do some basic security setups on the Pi.
+Once Raspbian has been installed and you have setup the wifi connection to the internet, you must then do some basic security setups on the Pi. All of this step will be in done using the terminal:
 
-1. First we will change the default Pi user password (don't delete the Pi user – we will need it later on)
+> NOTE: you are currently working as the default use Pi
 
-Open your terminal and type
+1. First we will make sure we are working as root. Type the following
+
+``sudo su``
+
+Enter your root password you chose during the setup process. 
+
+You should now see the terminal entry line ends with a ``#``. This shows you are now working as root.
+
+2. Now we will change the default Pi user password (don't delete the Pi user – we will need it later on)
+
+In your terminal type
 
 ``sudo passwd``
 
@@ -82,13 +98,13 @@ Enter the current password when asked.
 Enter the new password when asked.
 Confirm the new password when asked.
 
-2. Now create a new superuser and password (I recommend creating superuser 'bitg' to make this tutorial easier to follow and to allow the backup script to run without you having to make any edits). 
+3. Now create a new superuser and password (I recommend creating superuser 'bitg' to make this tutorial easier to follow and to allow the backup script to run without you having to make any edits). 
 
 At the prompt type
 
-``sudo adduser bitg && adduser bitg sudo``
+``sudo adduser bitg``
 
-3. Force sudo to require a password
+4. Force sudo to require a password
 
 At the prompt type
 
@@ -104,7 +120,7 @@ Press ``CTRL + X`` to exit.
 
 Press ``y`` to save the file before closing it.
 
-4. Update Raspbian to the latest version 
+5. Update Raspbian to the latest version 
 
 First, to update your package list type
 
@@ -125,7 +141,7 @@ sudo apt-get autoremove --purge
 
 You can save this page as a reference https://www.raspberrypi.org/documentation/raspbian/updating.md
 
-5. install ufw firewall and enable it by typing each of the following in succession (press enter after each line),
+6. install ufw firewall and enable it by typing each of the following in succession (press enter after each line),
 
 ```
 sudo ufw default allow outgoing
