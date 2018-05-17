@@ -218,11 +218,11 @@ After you have performed the above steps, go to Shutdown > Reboot
 
 **A Note on SSH**
 
-SSH is typically used for remote access (we'll use it a little later to access our VPS). However you need a static IP in order to use it.
+SSH is typically used for remote access (we'll use it a little later to access our VPS from our Pi). However you need a static IP in order to use it if you want to access the Pi via SSH.
 
-My Pi's run on my home network behind my router and so don't have a static external IP. For remote access I just run Teamviewer for Rasbian (instructions on how to do this at the end of the guide).
+My Pi's run on my home network behind my router and so don't have a static external IP. For remote access to the Pi's I just run Teamviewer for Rasbian (instructions on how to do this at the end of the guide).
 
-If you want to activate SSH you can look at the instructions on this page - https://www.raspberrypi.org/documentation/configuration/security.md. 
+If you want to activate SSH on yoru Pi so that you can access it via SSH, you can look at the instructions on this page - https://www.raspberrypi.org/documentation/configuration/security.md. 
 
 IMO however SSH is not necessary for this setup.
 
@@ -241,17 +241,35 @@ First lets create a folder for all the Bitcoin Green files we will need to downl
 3. Name the folder 'Bitcoingreen Files'
 4. Click OK
 
+![create folder Bitcoin Green](../assets/wallet1.png)
+
 Check that you now have a folder called 'Bitcoingreen Files' under home/bitg (bitg is the superuser you created earlier)
 
 1. Open your browser on the Pi, and download the Pi BITG wallet from Github - https://github.com/bitcoingreen/bitcoingreen/releases/download/1.1.0/bitcoingreen-1.1.0-arm-linux-gnueabihf.tar.gz - save this file to the Bitcoingreen Files folder you just created.
 2. Next point your browser to https://www.amazon.de/clouddrive/share/FYC5wP8e282To2XxUkzxqzUNjzHQB8zrMIsGmT2KJXT to download the latest BITG Bootstrap files (this link is also available in the Links section of the Bitcoin Green Discord Channel - if you haven't already joined, you can do so here https://discord.gg/g3CFth)
 3. Save this to the Bitcoingreen Files folder as well.
+
+![download wallet and bootstrap files](../assets/wallet2.png)
+
 4. Extract the wallet zip file (right click on it, then select Extract Here). This should create a folder named bitcoingreen-1.1.0
 5. Open this folder, and then open the 'bin' folder. Inside the bin folder you will see 6 files. 
-6. Double click on the file called bitcoingreen-qt to start the wallet install. Press the 'Execute' button when prompted. 
-7. When prompted, select 'Use default data directory' (the path shown in grey should be /home/bitg/.bitcoingreen) – this is important for the backup script to work
-8. Click OK - the wallet will open, and you will see a message that says it is out of synch. 
-9. Without waiting for the wallet to synchronise, close the wallet down as we will now use the bootstrap to fast track the synchronisation process.
+6. Double click on the file called bitcoingreen-qt to start the wallet install. 
+
+![start the wallet](../assets/wallet3.png)
+
+7. Press the 'Execute' button when prompted. 
+
+![press execute](../assets/wallet4.png)
+
+8. When prompted, select 'Use default data directory' (the path shown in grey should be /home/bitg/.bitcoingreen) – this is important for the backup script to work
+
+![choose default data directory](../assets/wallet5.png)
+
+9. Click OK - the wallet will open, and you will see a message that says it is out of synch. 
+
+![wallet out of synch](../assets/wallet6.png)
+
+10. Without waiting for the wallet to synchronise, close the wallet down as we will now use the bootstrap to fast track the synchronisation process.
 
 To do this, we need to access the bootstrap files we downloaded earlier.
 
