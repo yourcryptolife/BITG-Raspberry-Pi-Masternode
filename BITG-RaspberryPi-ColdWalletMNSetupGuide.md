@@ -18,7 +18,7 @@ To do this on my personal laptop wouldn't work, and as there was a Pi wallet rel
 
 The setup builds on top of the Bitcoin Green cold wallet setup guide & masternode setup script (https://goo.gl/S7fKdP) provided in the Bitcoin Green Discord channel (https://discord.gg/g3CFth) by XeZZoR (thanks mate).
 
-Essentially I have just setup the cold wallet on the Pi instead of my personal laptop. The VPS masternode server setup is exactly the same as XeZZoR's guide annd uses his script, so if you are familiar with that, this should be quite easy to follow.
+Essentially I have just setup the cold wallet on the Pi instead of my personal laptop. The VPS masternode server setup is exactly the same as XeZZoR's guide and uses his script, so if you are familiar with that, this should be quite easy to follow.
 
 ## Dangers to be aware of with the Pi ##
 
