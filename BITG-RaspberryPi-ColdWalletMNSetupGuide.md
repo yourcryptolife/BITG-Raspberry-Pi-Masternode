@@ -134,6 +134,8 @@ At the prompt type
 
 ``sudo nano /etc/sudoers.d/010_pi-nopasswd``
 
+![open nano](../assets/pisecurity5.png)
+
 Now change the pi entry (or whichever usernames have superuser rights) to:
 
 ``pi ALL=(ALL) PASSWD: ALL``
@@ -144,24 +146,35 @@ Press ``CTRL + X`` to exit.
 
 Press ``y`` to save the file before closing it.
 
+![force sudo password](../assets/pisecurity6.png)
+
 5. Update Raspbian to the latest version 
 
 First, to update your package list type
 
-``sudo apt-get update``
+``sudo apt-get update`` and press enter
+
+![force sudo password](../assets/pisecurity7.png)
 
 Next to update the distro type 
 
-``sudo apt-get dist-upgrade``
+``sudo apt-get dist-upgrade`` and press enter
+
+![force sudo password](../assets/pisecurity8.png)
+
+You will be shown a list of new installs and upgrades - type `y` annd press enter to complete the upgrade process.
+
+![force sudo password](../assets/pisecurity9.png)
 
 Now remove unnecessary files after the upgrade to maximise space on the SD card. 
 
-At the prompt type
+At the prompt enter each line, and press enter at the end of each line
 
 ```
 sudo apt-get clean
 sudo apt-get autoremove --purge
 ```
+![force sudo password](../assets/pisecurity10.png)
 
 You can save this page as a reference https://www.raspberrypi.org/documentation/raspbian/updating.md
 
@@ -174,20 +187,31 @@ sudo ufw allow ssh/tcp
 sudo ufw limit ssh/tcp
 sudo ufw logging on
 sudo ufw enable
-sudo ufw status
 ```
+![force sudo password](../assets/pisecurity11.png)
+
+Now type 
+
+``sudo ufw status``
 
 The firewall should say that status is active.
 
+![force sudo password](../assets/pisecurity12.png)
+
 7. Now we will install fail2ban. What this app does is ban people that keep entering the wrong password when trying to login via ssh, i.e brute force attacks. Remember to press enter after each line
 
+``sudo apt-get install fail2ban`` and enter `y` when prompted
+
+![force sudo password](../assets/pisecurity13.png)
+
+Now type the following
+
 ```
-sudo apt-get install fail2ban
 sudo systemctl enable fail2ban
 sudo systemctl start fail2ban
 ```
+![force sudo password](../assets/pisecurity14.png)
 
-After you have performed the above steps, go to Shutdown > Reboot
 After you have performed the above steps, go to Shutdown > Reboot
 
 **A Note on SSH**
