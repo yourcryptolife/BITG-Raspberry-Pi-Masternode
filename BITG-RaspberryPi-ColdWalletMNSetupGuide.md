@@ -286,7 +286,10 @@ To do this, we need to access the bootstrap files we downloaded earlier.
 
 > NOTE: Any folder with a '.' in front of it is hidden by default in Linux
 
-5. Open the (now unhidden) .bitcoingreen folder, click anywhere inside it and then press CTRL+V to paste them into this folder (NOTE the '.' before .bitcongreen – this is the default data directory for the wallet that we chose when we installed it)
+5. Open the (now unhidden) .bitcoingreen folder, click anywhere inside it and then press CTRL+V to paste them into this folder 
+
+> NOTE: this is the default data directory for the wallet that we chose when we installed it. It is also where your wallet.dat (ie. your COINS!) file lives.
+
 6. You will see a warning popup that says you are about to overwrite files. Make sure you check the 'Apply this option to all existing files' and then click the Overwrite button
 
 ![paste bootstrap files into .bitcoin directory](../assets/wallet9.png)
@@ -359,10 +362,11 @@ To keep the Pi running smoothly however, we want to automate this process, and e
 ``sudo nano bitgbackup.sh``
 
 3. enter your password and press enter
-4. nano will now open.
-5. Copy and paste (right click > paste) the following (everything BETWEEN –-start--- and –-end---) into nano:
 
----start---
+![auto backup-step1](../assets/backup1.png)
+
+4. nano will now open.
+5. Copy and paste (right click > paste) the following into nano:
 
 ```
 #!/bin/bash`
@@ -392,14 +396,15 @@ date
 # Long listing of files in $dest to check file sizes.
 ls -lh $dest
 ```
-
---end--
+![auto backup-step2](../assets/backup2.png)
 
 6. Check the line:
 
 ``backup_files="/home/bitg/.bitcoingreen/wallet.dat" ``
 
 to make sure it is pointing to wallet.dat on your Pi.
+
+![auto backup-step3](../assets/backup3.png)
 
 > NOTE: if you had created the superuser bitg earlier, then this line should be correct already and you should not have to edit it.
 
@@ -409,6 +414,8 @@ to make sure it is pointing to wallet.dat on your Pi.
 
 to see that the backup file is being writtten to the USB. 
 
+![auto backup-step4](../assets/backup4.png)
+
 > NOTE: If you are following this guide, and named your USB volume BITGBackup, then this line will also be correct. 
 
 8. Press ``CTRL + X``
@@ -417,14 +424,19 @@ to see that the backup file is being writtten to the USB.
 
 ``sudo chmod u+x bitgbackup.sh``
 
-11. Press enter.
+11. Press enter
+
+![auto backup-step5](../assets/backup5.png)
+
 12. now type
 
 ``sudo ./bitgbackup.sh``
 
-13. Press enter.
+13. Press enter
 
 You should see the script push out some output as it backs up to the USB drive. This should show you the directory listing of the USB so you can see if your backup file exists.
+
+![auto backup-step6](../assets/backup6.png)
 
 Open the USB drive in file explorer and confirm that the script has generated the backup file by opening the backup zip file to see that the wallet .dat file has been saved. 
 
@@ -437,6 +449,9 @@ To automate this script, we must now setup a CRON job to manage it.
 ``sudo crontab -e``
 
 2. press enter
+
+![auto backup-step7](../assets/backup7.png)
+
 3. if its the first time you are doing this, you must now choose a text editor - I suggest choose 2 (nano) and press enter
 4. navigate to the bottom of the file using your arrow keys
 5. type the following, each on a new line
@@ -446,6 +461,8 @@ To automate this script, we must now setup a CRON job to manage it.
 ```
 6. press ``CTRL + X``
 7. type ``Y`` and press enter
+
+![auto backup-step8](../assets/backup8.png)
 
 The above will now run the backup shell script every day at 11:59 and again at 23:59 and will save a zipped copy of the wallet.dat file to the USB drive. Make sure to check on this regularly and make additional backups off this USB drive.
 
