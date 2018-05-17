@@ -274,13 +274,24 @@ Check that you now have a folder called 'Bitcoingreen Files' under home/bitg (bi
 To do this, we need to access the bootstrap files we downloaded earlier.
 
 1. first extract the bootstrap files we downloaded earlier (right click on the bootstrap zip file and select Extract Here)
+
+![extract bootstrap](../assets/wallet7.png)
+
 2. double click the folder BITG_Bootstrap
 3. Click anywhere inside the folder, and press CTRL+A to select all files and folders, then CTRL+C to copy them
+
+![copy bootstrap](../assets/wallet8.png)
+
 4. Navigate to the /home/bitg/ folder. Click anywhere in the folder and press ``CTRL + H`` This will reveal the hidden folders.
-5. Open the .bitcoingreen folder, click anywhere inside it and then press CTRL+V to paste them into this folder (NOTE the . before bitcongreen – this is the default data directory for the wallet)
+5. Open the .bitcoingreen folder, click anywhere inside it and then press CTRL+V to paste them into this folder (NOTE the '.' before .bitcongreen – this is the default data directory for the wallet that we chose when we installed it)
 6. You will see a warning popup that says you are about to overwrite files. Make sure you check the 'Apply this option to all existing files' and then click the Overwrite button
+
+![paste bootstrap files into .bitcoin directory](../assets/wallet9.png)
+
 7. Go back to the home>bitg>Bitcoin Green>bitcoingreen-1.0.0>bin folder, and double click the bitcoingreen-qt file again to launch the wallet. Remember to press the 'Execute' button when prompted.
 8. The wallet will now launch and complete the synchronisation process.
+
+## SECURE THE CONTROLLER WALLET ##
 
 Once the wallet has synchronised with the blockchain, we need to do a little tightening up on securing the wallet itself.
 
@@ -288,6 +299,8 @@ First we will encrypt the wallet.
 
 1. Click Settings > Encrypt Wallet
 2. Enter an 8 word or more secure passphrase and click OK
+
+![encrypt wallet](../assets/wallet10.png)
 
 > **THIS IS VERY IMPORTANT!!!**
 > **Make sure that you save this passphrase somewhere safe - without it you will never be able to get your coins back if you need to restore the wallet at some point in the future. I personally have a printout that I keep in my safe, as well as a copy on a usb pendrive that I can access whenever I need it.**
@@ -297,15 +310,27 @@ Next we need to configure the wallet.
 Go to Settings > Options
 
 1. Under the Main Tab, make sure that the Start Bitcoin Green on system login is ticked
+
+![start bitcoin green on startup](../assets/wallet11.png)
+
 2. Click the Wallet Tab
 3. Tick Enable coin control features
 4. Tick Show Masternodes tab
+
+![enable coin control and masternodes](../assets/wallet12.png)
+
 5. Click OK
 
 Next we need to lock the wallet
 
-1. Go on Settings > Lock Wallet
+1. Go to Settings > Lock Wallet
+3. Click Ok
+
+Finally we will unlock it for staking only
+
+1. Go to Settings > Unlock Wallet
 2. Enter your passphrase
+3. Tick Unlock for staking only
 3. Click Ok
 
 Now backup the wallet.dat file.
