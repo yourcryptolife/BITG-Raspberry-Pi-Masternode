@@ -116,6 +116,18 @@ At the prompt type
 
 ``sudo adduser bitg``
 
+Supply a password for this userr when prompted. When asked for the details such as Name etc, just press enter until you get to the line asking you if the information is correct, at which point you just type `y` and press enter.
+
+![User bitg added](../assets/pisecurity3.png)
+
+Now we must upgrade the bitg user to a superuser. at the prompt type
+
+``sudo adduser bitg sudo `` 
+
+User bitg will now be added to the superuser group.
+
+![user upgraded to superuser](../assets/pisecurity4.png)
+
 4. Force sudo to require a password
 
 At the prompt type
