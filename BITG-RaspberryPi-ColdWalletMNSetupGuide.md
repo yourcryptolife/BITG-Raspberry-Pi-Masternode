@@ -1,6 +1,6 @@
 ## Raspberry PI Bitcoin Green Cold Wallet Masternode Setup Guide ##
 
-**DISCLAIMER: This is not financial advice. Use at your own risk!**
+**DISCLAIMER: This is not financial advice. The author accepts NO RESPONSIBILITY for ANY LOSS OF DATA or CAPITAL that may occur as a result of following and implementing the information contained in this guide. By reading and/or implementing the information contained herein, you agree to accept full responsibility for your actions, and shall assume the full risk of any liability arising from your own conduct. USE AT YOUR OWN RISK!**
 
 This guide is a work in progress. Feedback to help improve it and donations towards its upkeep are all welcome :)
 
@@ -8,23 +8,27 @@ This guide is a work in progress. Feedback to help improve it and donations towa
 
 > ![$BTC Bitcoin](https://coinmarketcap.com/currencies/bitcoin/) Donation Address: **1AxzU81tw8rBL9vRyGdhWL4s4C8BusffP7**
 
+Current enhancements in the pipeline are to setup the Pi to run off an SSD drive instead of an SD card. I will update this guide when that happens.
+
 >NOTE: While this guide covers setting up multiple masternodes on the Pi, I have only tested it with a single BITG masternode (I can't afford more nodes at the moment). If you have the collateral to test additional nodes please do so and let me know how it goes. I'd like to know if the Pi is affected.
 
 ## Overview Of The Masternode Setup ##
 
-This is a guide for setting up a Bitcoin Green Cold VPS Masternode using a Raspberry Pi3 to host the cold wallet & a Vultr Ubuntu 16.04 VPS to act as the public facing MN server. I decided to try this approach as I wanted to be able to keep my cold wallet open 24/7 so that it could earn staking rewards on top of the masternode rewards. 
+This is a guide for setting up a Bitcoin Green Cold VPS Masternode using a Raspberry Pi3 to host the cold wallet & a Vultr Ubuntu 16.04 VPS to act as the public facing MN server. 
 
-To do this on my personal laptop wouldn't work, and as there was a Pi wallet released for BITG, I decided to see how it would work.
+I decided to try this approach as I wanted to be able to keep my cold wallet open 24/7 so that it could earn staking rewards on top of the masternode rewards. 
+
+To do this on my personal laptop wouldn't work, and as there was a Pi wallet released for BITG, I decided to see if it would work.
 
 The setup builds on top of the Bitcoin Green cold wallet setup guide & masternode setup script provided by XeZZoR which you can get here https://goo.gl/S7fKdP
 
-I have just setup the cold wallet on the Pi instead of my personal laptop. The VPS masternode server setup is exactly the same as XeZZoR's guide, so if you are familiar with that, this should be quite easy to follow.
+Essentially I have just setup the cold wallet on the Pi instead of my personal laptop. The VPS masternode server setup is exactly the same as XeZZoR's guide, so if you are familiar with that, this should be quite easy to follow.
 
 ## Dangers to be aware of with the Pi ##
 
 Using the Pi for this does come with some added things to take care of. 
 
-It runs off an SD card, and these are known to fail more regularly than your standard HDD, so backups are VERY IMPORTANT!
+Most importantly, the Pi runs off an SD card, and these are known to fail more regularly than your standard HDD, so backups of your wallet.dat file are VERY IMPORTANT to prevent any loss of your $BITG coins!
 
 We also need to do some basic security to the Pi. Mine run behind my home routers firewall, but I do secure them by running some standard security instructions.
 
@@ -32,7 +36,7 @@ This setup has 2 benefits with regards to running the masternode:
 
 1. **Coin Safety**. Because it stores your coins locally (on the Pi), it protects your masternode investment from being stolen by hackers should they manage to hack the masternodes public facing IP address (the VPS server). There is no direct connection between the 2 machines.
 
-> NOTE: this also assumes that you ensure the Pi has at least some basic intrusion protection by following the instructions in this guide. It also assumes that you follow the backup instructions. Raspberry Pi's run off an SD card, and these are known to fail. I have included backup scripts for both the disc image of the SD card as well as backing up the wallet.dat file from the masternode wallet on the Pi. These are written to a seperate USB drive.
+> NOTE: this also assumes that you ensure the Pi has at least some basic intrusion protection by following the instructions in this guide. It also assumes that you follow the backup instructions. I have included a backup script for backing up the wallet.dat file from the masternode wallet on the Pi. These are written to a seperate USB thumb drive.
 
 2. **Optimised ROI** In addition to earning masternode rewards, this setup allows you to earn staking rewards by leaving the Pi online 24/7, and keeping the wallet on the Pi open all the time - encrypted and locked, but open for staking.
 
@@ -43,9 +47,9 @@ This allows you to optimise the return of your masternode as you will earn both 
 1. Raspberry Pi 3 to host your cold wallet and coins
 2. At least an 8GB micro SD Card with Noobs installed
 3. A Pi power pack, a monitor, USB keyboard and USB mouse. If you have a VGA monitor, you'll need a VGA to HDMI converter as the Pi only has a HDMI slot. The keyboard, mouse and monitor are needed for the initial setup of the Pi. Once the Pi is configured and online, you can access it remotely via TeamViewer. 
-4. A USB drive to hold backups of your wallet.dat & a backup image of the Pi's SD card. I recommend at least a 16GB USB drive for this.
+4. A USB drive to hold backups of your wallet.dat file.
 
-> NOTE: For the purposes of this guide please name the USB volume BITGBackup as we will setup small shell scripts & CRON jobs to manage this automatically later on.
+> NOTE: For the purposes of this guide please name the USB volume BITGBackup as we will setup a shell script & CRON job to manage this automatically later on.
 
 5. Heat sinks for the Pi to keep its chips as cool as possible - we're mining cryptos remember ;)
 
@@ -92,6 +96,8 @@ Enter your root password you chose during the setup process.
 
 You should now see the terminal entry line ends with a ``#``. This shows you are now working as root.
 
+![Working as Root](../assets/pisecurity1.png)
+
 2. Now we will change the default Pi user password (don't delete the Pi user – we will need it later on)
 
 In your terminal type
@@ -101,6 +107,8 @@ In your terminal type
 Enter the current password when asked.
 Enter the new password when asked.
 Confirm the new password when asked.
+
+![Password changed](../assets/pisecurity2.png)
 
 3. Now create a new superuser and password (I recommend creating superuser 'bitg' to make this tutorial easier to follow and to allow the backup script to run without you having to make any edits). 
 
