@@ -4,9 +4,9 @@
 
 This guide is a work in progress. Feedback to help improve it and donations towards its upkeep are all welcome :)
 
-> ![$BITG Bitcoin Green](https://coinmarketcap.com/currencies/bitcoin-green/?raw=true) Donation Address: **GXtS1QCPsMANpRDQa5xFwogfbxT42dy5uV**
+> $BITG Bitcoin Green Donation Address: **GXtS1QCPsMANpRDQa5xFwogfbxT42dy5uV**
 
-> ![$BTC Bitcoin](https://coinmarketcap.com/currencies/bitcoin/) Donation Address: **1AxzU81tw8rBL9vRyGdhWL4s4C8BusffP7**
+> $BTC Bitcoin Donation Address: **1AxzU81tw8rBL9vRyGdhWL4s4C8BusffP7**
 
 Current enhancements in the pipeline are to setup the Pi to run off an SSD drive instead of an SD card. I will update this guide when that happens.
 
@@ -20,13 +20,15 @@ I decided to try this approach as I wanted to be able to keep my cold wallet ope
 
 To do this on my personal laptop wouldn't work, and as there was a Pi wallet released for BITG, I decided to see if it would work.
 
-The setup builds on top of the ![Bitcoin Green cold wallet setup guide & masternode setup script](https://goo.gl/S7fKdP) provided in the ![Bitcoin Green Discord channel](https://discord.gg/g3CFth) by XeZZoR (thanks mate).
+The setup builds on top of the Bitcoin Green cold wallet setup guide & masternode setup script (https://goo.gl/S7fKdP) provided in the Bitcoin Green Discord channel (https://discord.gg/g3CFth) by XeZZoR (thanks mate).
 
-Essentially I have just setup the cold wallet on the Pi instead of my personal laptop. The VPS masternode server setup is exactly the same as XeZZoR's guide, so if you are familiar with that, this should be quite easy to follow.
+Essentially I have just setup the cold wallet on the Pi instead of my personal laptop. The VPS masternode server setup is exactly the same as XeZZoR's guide annd uses his script, so if you are familiar with that, this should be quite easy to follow.
 
 ## Dangers to be aware of with the Pi ##
 
-Using the Pi for this does come with some added things to take care of.
+Using the Pi for this does come with some added things to take care of. 
+
+> NOTE: I'll add to this list as I discover any more shortcomings ;)
 
 Most importantly, the Pi runs off an SD card, and these are known to fail more regularly than your standard HDD, so backups of your wallet.dat file are VERY IMPORTANT to prevent any loss of your $BITG coins!
 
@@ -49,13 +51,14 @@ This allows you to optimise the return of your masternode as you will earn both 
 3. A Pi power pack, a monitor, USB keyboard and USB mouse. If you have a VGA monitor, you'll need a VGA to HDMI converter as the Pi only has a HDMI slot. The keyboard, mouse and monitor are needed for the initial setup of the Pi. Once the Pi is configured and online, you can access it remotely via TeamViewer. 
 4. A USB drive to hold backups of your wallet.dat file.
 
-> NOTE: For the purposes of this guide please name the USB volume BITGBackup as we will setup a shell script & CRON job to manage this automatically later on.
+> NOTE: For the purposes of this guide I have named the USB volume BITGBackup as we will setup a shell script & CRON job to manage this automatically later on.
 
 5. Heat sinks for the Pi to keep its chips as cool as possible - we're mining cryptos remember ;)
 
-![Raspberry Pi Masternode Kit](../assets/pi3-kit.png)
+![Raspberry Pi Masternode Kit](../assets/pi3-kit.png?raw=true)
 
-6. A Linux VPS - in this guide we will use a $5 Vultr Ubuntu 16.04 Linux VPS server. Don't have one yet? No worries - you can ![get your Vultr server here](https://www.vultr.com/?ref=7352503)
+6. A Linux VPS - in this guide we will use a $5 Vultr Ubuntu 16.04 Linux VPS server. Don't have one yet? No worries - you can get your Vultr server here (https://www.vultr.com/?ref=7352503)
+
 7. At least 2501 BITG (2500 collateral for the masternode, the balance to cover any transaction fees). 
 
 You can buy this on any of the following exchanges:
@@ -96,7 +99,7 @@ Enter your root password you chose during the setup process.
 
 You should now see the terminal entry line ends with a ``#``. This shows you are now working as root.
 
-![Working as Root](../assets/pisecurity1.png)
+![Working as Root](../assets/pisecurity1.png?raw=true)
 
 2. Now we will change the default Pi user password (don't delete the Pi user – we will need it later on)
 
@@ -108,7 +111,7 @@ Enter the current password when asked.
 Enter the new password when asked.
 Confirm the new password when asked.
 
-![Password changed](../assets/pisecurity2.png)
+![Password changed](../assets/pisecurity2.png?raw=true)
 
 3. Now create a new superuser and password (I recommend creating superuser 'bitg' to make this tutorial easier to follow and to allow the backup script to run without you having to make any edits). 
 
@@ -118,7 +121,7 @@ At the prompt type
 
 Supply a password for this userr when prompted. When asked for the details such as Name etc, just press enter until you get to the line asking you if the information is correct, at which point you just type `y` and press enter.
 
-![User bitg added](../assets/pisecurity3.png)
+![User bitg added](../assets/pisecurity3.png?raw=true)
 
 Now we must upgrade the bitg user to a superuser. at the prompt type
 
@@ -126,7 +129,7 @@ Now we must upgrade the bitg user to a superuser. at the prompt type
 
 User bitg will now be added to the superuser group.
 
-![user upgraded to superuser](../assets/pisecurity4.png)
+![user upgraded to superuser](../assets/pisecurity4.png?raw=true)
 
 4. Force sudo to require a password
 
@@ -134,7 +137,7 @@ At the prompt type
 
 ``sudo nano /etc/sudoers.d/010_pi-nopasswd``
 
-![open nano](../assets/pisecurity5.png)
+![open nano](../assets/pisecurity5.png?raw=true)
 
 Now change the pi entry (or whichever usernames have superuser rights) to:
 
@@ -146,7 +149,7 @@ Press ``CTRL + X`` to exit.
 
 Press ``y`` to save the file before closing it.
 
-![force sudo password](../assets/pisecurity6.png)
+![force sudo password](../assets/pisecurity6.png?raw=true)
 
 5. Update Raspbian to the latest version 
 
@@ -154,17 +157,17 @@ First, to update your package list type
 
 ``sudo apt-get update`` and press enter
 
-![get filesystem updates](../assets/pisecurity7.png)
+![get filesystem updates](../assets/pisecurity7.png?raw=true)
 
 Next to update the distro type 
 
 ``sudo apt-get dist-upgrade`` and press enter
 
-![start upgrade](../assets/pisecurity8.png)
+![start upgrade](../assets/pisecurity8.png?raw=true)
 
 You will be shown a list of new installs and upgrades - type `y` annd press enter to complete the upgrade process.
 
-![confirm update](../assets/pisecurity9.png)
+![confirm update](../assets/pisecurity9.png?raw=true)
 
 Now remove unnecessary files after the upgrade to maximise space on the SD card. 
 
@@ -174,7 +177,7 @@ At the prompt enter each line, and press enter at the end of each line
 sudo apt-get clean
 sudo apt-get autoremove --purge
 ```
-![remove unnecessary files](../assets/pisecurity10.png)
+![remove unnecessary files](../assets/pisecurity10.png?raw=true)
 
 You can save this page as a reference https://www.raspberrypi.org/documentation/raspbian/updating.md
 
@@ -188,7 +191,7 @@ sudo ufw limit ssh/tcp
 sudo ufw logging on
 sudo ufw enable
 ```
-![install and configure firewall](../assets/pisecurity11.png)
+![install and configure firewall](../assets/pisecurity11.png?raw=true)
 
 Now type 
 
@@ -196,13 +199,13 @@ Now type
 
 The firewall should say that status is active.
 
-![check firewall status](../assets/pisecurity12.png)
+![check firewall status](../assets/pisecurity12.png?raw=true)
 
 7. Now we will install fail2ban. What this app does is ban people that keep entering the wrong password when trying to login via ssh, i.e brute force attacks. Remember to press enter after each line
 
 ``sudo apt-get install fail2ban`` and enter `y` when prompted
 
-![install fail2ban](../assets/pisecurity13.png)
+![install fail2ban](../assets/pisecurity13.png?raw=true)
 
 Now type the following
 
@@ -210,11 +213,11 @@ Now type the following
 sudo systemctl enable fail2ban
 sudo systemctl start fail2ban
 ```
-![start fail2ban](../assets/pisecurity14.png)
+![start fail2ban](../assets/pisecurity14.png?raw=true)
 
 After you have performed the above steps, go to Shutdown > Reboot
 
-![Reboot](../assets/pisecurity15.png)
+![Reboot](../assets/pisecurity15.png?raw=true)
 
 **A Note on SSH**
 
@@ -241,7 +244,7 @@ First lets create a folder for all the Bitcoin Green files we will need to downl
 3. Name the folder 'Bitcoingreen Files'
 4. Click OK
 
-![create folder Bitcoin Green](../assets/wallet1.png)
+![create folder Bitcoin Green](../assets/wallet1.png?raw=true)
 
 Check that you now have a folder called 'Bitcoingreen Files' under home/bitg (bitg is the superuser you created earlier)
 
@@ -249,25 +252,25 @@ Check that you now have a folder called 'Bitcoingreen Files' under home/bitg (bi
 2. Next point your browser to https://www.amazon.de/clouddrive/share/FYC5wP8e282To2XxUkzxqzUNjzHQB8zrMIsGmT2KJXT to download the latest BITG Bootstrap files (this link is also available in the Links section of the Bitcoin Green Discord Channel - if you haven't already joined, you can do so here https://discord.gg/g3CFth)
 3. Save this to the Bitcoingreen Files folder as well.
 
-![download wallet and bootstrap files](../assets/wallet2.png)
+![download wallet and bootstrap files](../assets/wallet2.png?raw=true)
 
 4. Extract the wallet zip file (right click on it, then select Extract Here). This should create a folder named bitcoingreen-1.1.0
 5. Open this folder, and then open the 'bin' folder. Inside the bin folder you will see 6 files. 
 6. Double click on the file called bitcoingreen-qt to start the wallet install. 
 
-![start the wallet](../assets/wallet3.png)
+![start the wallet](../assets/wallet3.png?raw=true)
 
 7. Press the 'Execute' button when prompted. 
 
-![press execute](../assets/wallet4.png)
+![press execute](../assets/wallet4.png?raw=true)
 
 8. When prompted, select 'Use default data directory' (the path shown in grey should be /home/bitg/.bitcoingreen) – this is important for the backup script to work
 
-![choose default data directory](../assets/wallet5.png)
+![choose default data directory](../assets/wallet5.png?raw=true)
 
 9. Click OK - the wallet will open, and you will see a message that says it is out of synch. 
 
-![wallet out of synch](../assets/wallet6.png)
+![wallet out of synch](../assets/wallet6.png?raw=true)
 
 10. Without waiting for the wallet to synchronise, close the wallet down as we will now use the bootstrap to fast track the synchronisation process.
 
@@ -275,12 +278,12 @@ To do this, we need to access the bootstrap files we downloaded earlier.
 
 1. First extract the bootstrap files we downloaded earlier (right click on the bootstrap zip file and select Extract Here)
 
-![extract bootstrap](../assets/wallet7.png)
+![extract bootstrap](../assets/wallet7.png?raw=true)
 
 2. Double click the folder BITG_Bootstrap
 3. Click anywhere inside the folder, and press CTRL+A to select all files and folders, then CTRL+C to copy them
 
-![copy bootstrap](../assets/wallet8.png)
+![copy bootstrap](../assets/wallet8.png?raw=true)
 
 4. Navigate to the /home/bitg/ folder. Click anywhere in the folder and press ``CTRL + H`` This will reveal the hidden folders. 
 
@@ -292,7 +295,7 @@ To do this, we need to access the bootstrap files we downloaded earlier.
 
 6. You will see a warning popup that says you are about to overwrite files. Make sure you check the 'Apply this option to all existing files' and then click the Overwrite button
 
-![paste bootstrap files into .bitcoin directory](../assets/wallet9.png)
+![paste bootstrap files into .bitcoin directory](../assets/wallet9.png?raw=true)
 
 7. Go back to the home>bitg>Bitcoin Green>bitcoingreen-1.0.0>bin folder, and double click the bitcoingreen-qt file again to launch the wallet. Remember to press the 'Execute' button when prompted.
 8. The wallet will now launch and complete the synchronisation process.
@@ -306,7 +309,7 @@ First we will encrypt the wallet.
 1. Click Settings > Encrypt Wallet
 2. Enter an 8 word or more secure passphrase and click OK
 
-![encrypt wallet](../assets/wallet10.png)
+![encrypt wallet](../assets/wallet10.png?raw=true)
 
 > **THIS IS VERY IMPORTANT!!!**
 > **Make sure that you save this passphrase somewhere safe - without it you will never be able to get your coins back if you need to restore the wallet at some point in the future. I personally have a printout that I keep in my safe, as well as a copy on a usb pendrive that I can access whenever I need it.**
@@ -317,13 +320,13 @@ Go to Settings > Options
 
 1. Under the Main Tab, make sure that the Start Bitcoin Green on system login is ticked
 
-![start bitcoin green on startup](../assets/wallet11.png)
+![start bitcoin green on startup](../assets/wallet11.png?raw=true)
 
 2. Click the Wallet Tab
 3. Tick Enable coin control features
 4. Tick Show Masternodes tab
 
-![enable coin control and masternodes](../assets/wallet12.png)
+![enable coin control and masternodes](../assets/wallet12.png?raw=true)
 
 5. Click OK
 
@@ -339,7 +342,7 @@ Finally we will unlock it for staking only
 3. Tick Unlock for staking only
 3. Click Ok
 
-![unlock for staking](../assets/wallet13.png)
+![unlock for staking](../assets/wallet13.png?raw=true)
 
 Now backup the wallet.dat file.
 
@@ -352,7 +355,7 @@ To do a manual backup of the wallet.dat file, do the following:
 3. Name the file
 4. Click OK
 
-![manual backup](../assets/wallet14.png)
+![manual backup](../assets/wallet14.png?raw=true)
 
 To keep the Pi running smoothly however, we want to automate this process, and ensure that the backup file is kept on the USB drive in case the SD card ever fails (which is common on the Pi). To do this we must create a shell script that can save a compressed and timestamped copy of our wallet.dat file twice a day.
 
@@ -363,7 +366,7 @@ To keep the Pi running smoothly however, we want to automate this process, and e
 
 3. enter your password and press enter
 
-![auto backup-step1](../assets/backup1.png)
+![auto backup-step1](../assets/backup1.png?raw=true)
 
 4. nano will now open.
 5. Copy and paste (right click > paste) the following into nano:
@@ -396,7 +399,7 @@ date
 # Long listing of files in $dest to check file sizes.
 ls -lh $dest
 ```
-![auto backup-step2](../assets/backup2.png)
+![auto backup-step2](../assets/backup2.png?raw=true)
 
 6. Check the line:
 
@@ -404,7 +407,7 @@ ls -lh $dest
 
 to make sure it is pointing to wallet.dat on your Pi.
 
-![auto backup-step3](../assets/backup3.png)
+![auto backup-step3](../assets/backup3.png?raw=true)
 
 > NOTE: if you had created the superuser bitg earlier, then this line should be correct already and you should not have to edit it.
 
@@ -414,7 +417,7 @@ to make sure it is pointing to wallet.dat on your Pi.
 
 to see that the backup file is being writtten to the USB. 
 
-![auto backup-step4](../assets/backup4.png)
+![auto backup-step4](../assets/backup4.png?raw=true)
 
 > NOTE: If you are following this guide, and named your USB volume BITGBackup, then this line will also be correct. 
 
@@ -426,7 +429,7 @@ to see that the backup file is being writtten to the USB.
 
 11. Press enter
 
-![auto backup-step5](../assets/backup5.png)
+![auto backup-step5](../assets/backup5.png?raw=true)
 
 12. now type
 
@@ -436,7 +439,7 @@ to see that the backup file is being writtten to the USB.
 
 You should see the script push out some output as it backs up to the USB drive. This should show you the directory listing of the USB so you can see if your backup file exists.
 
-![auto backup-step6](../assets/backup6.png)
+![auto backup-step6](../assets/backup6.png?raw=true)
 
 Open the USB drive in file explorer and confirm that the script has generated the backup file by opening the backup zip file to see that the wallet .dat file has been saved. 
 
@@ -450,7 +453,7 @@ To automate this script, we must now setup a CRON job to manage it.
 
 2. press enter
 
-![auto backup-step7](../assets/backup7.png)
+![auto backup-step7](../assets/backup7.png?raw=true)
 
 3. if its the first time you are doing this, you must now choose a text editor - I suggest choose 2 (nano) and press enter
 4. navigate to the bottom of the file using your arrow keys
@@ -462,7 +465,7 @@ To automate this script, we must now setup a CRON job to manage it.
 6. press ``CTRL + X``
 7. type ``Y`` and press enter
 
-![auto backup-step8](../assets/backup8.png)
+![auto backup-step8](../assets/backup8.png?raw=true)
 
 The above will now run the backup shell script every day at 11:59 and again at 23:59 and will save a zipped copy of the wallet.dat file to the USB drive. Make sure to check on this regularly and make additional backups off this USB drive.
 
