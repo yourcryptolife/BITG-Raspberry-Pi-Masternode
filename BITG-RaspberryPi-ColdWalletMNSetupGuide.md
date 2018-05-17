@@ -20,13 +20,13 @@ I decided to try this approach as I wanted to be able to keep my cold wallet ope
 
 To do this on my personal laptop wouldn't work, and as there was a Pi wallet released for BITG, I decided to see if it would work.
 
-The setup builds on top of the Bitcoin Green cold wallet setup guide & masternode setup script provided by XeZZoR which you can get here https://goo.gl/S7fKdP
+The setup builds on top of the ![Bitcoin Green cold wallet setup guide & masternode setup script](https://goo.gl/S7fKdP) provided in the ![Bitcoin Green Discord channel](https://discord.gg/g3CFth) by XeZZoR (thanks mate).
 
 Essentially I have just setup the cold wallet on the Pi instead of my personal laptop. The VPS masternode server setup is exactly the same as XeZZoR's guide, so if you are familiar with that, this should be quite easy to follow.
 
 ## Dangers to be aware of with the Pi ##
 
-Using the Pi for this does come with some added things to take care of. 
+Using the Pi for this does come with some added things to take care of.
 
 Most importantly, the Pi runs off an SD card, and these are known to fail more regularly than your standard HDD, so backups of your wallet.dat file are VERY IMPORTANT to prevent any loss of your $BITG coins!
 
@@ -178,7 +178,7 @@ sudo apt-get autoremove --purge
 
 You can save this page as a reference https://www.raspberrypi.org/documentation/raspbian/updating.md
 
-6. install ufw firewall and enable it by typing each of the following in succession (press enter after each line),
+6. Install ufw firewall and enable it by typing each of the following in succession (press enter after each line),
 
 ```
 sudo ufw default allow outgoing
@@ -273,17 +273,20 @@ Check that you now have a folder called 'Bitcoingreen Files' under home/bitg (bi
 
 To do this, we need to access the bootstrap files we downloaded earlier.
 
-1. first extract the bootstrap files we downloaded earlier (right click on the bootstrap zip file and select Extract Here)
+1. First extract the bootstrap files we downloaded earlier (right click on the bootstrap zip file and select Extract Here)
 
 ![extract bootstrap](../assets/wallet7.png)
 
-2. double click the folder BITG_Bootstrap
+2. Double click the folder BITG_Bootstrap
 3. Click anywhere inside the folder, and press CTRL+A to select all files and folders, then CTRL+C to copy them
 
 ![copy bootstrap](../assets/wallet8.png)
 
-4. Navigate to the /home/bitg/ folder. Click anywhere in the folder and press ``CTRL + H`` This will reveal the hidden folders.
-5. Open the .bitcoingreen folder, click anywhere inside it and then press CTRL+V to paste them into this folder (NOTE the '.' before .bitcongreen – this is the default data directory for the wallet that we chose when we installed it)
+4. Navigate to the /home/bitg/ folder. Click anywhere in the folder and press ``CTRL + H`` This will reveal the hidden folders. 
+
+> NOTE: Any folder with a '.' in front of it is hidden by default in Linux
+
+5. Open the (now unhidden) .bitcoingreen folder, click anywhere inside it and then press CTRL+V to paste them into this folder (NOTE the '.' before .bitcongreen – this is the default data directory for the wallet that we chose when we installed it)
 6. You will see a warning popup that says you are about to overwrite files. Make sure you check the 'Apply this option to all existing files' and then click the Overwrite button
 
 ![paste bootstrap files into .bitcoin directory](../assets/wallet9.png)
@@ -333,6 +336,8 @@ Finally we will unlock it for staking only
 3. Tick Unlock for staking only
 3. Click Ok
 
+![unlock for staking](../assets/wallet13.png)
+
 Now backup the wallet.dat file.
 
 > NOTE: Make sure that your USB drive called BITGBackup is inserted into the Pi.
@@ -343,6 +348,8 @@ To do a manual backup of the wallet.dat file, do the following:
 2. Select a destination (recommend the USB drive)
 3. Name the file
 4. Click OK
+
+![manual backup](../assets/wallet14.png)
 
 To keep the Pi running smoothly however, we want to automate this process, and ensure that the backup file is kept on the USB drive in case the SD card ever fails (which is common on the Pi). To do this we must create a shell script that can save a compressed and timestamped copy of our wallet.dat file twice a day.
 
