@@ -89,9 +89,9 @@ Do the following to get the Pi online.
 
 Once Raspbian has been installed and you have setup the wifi connection to the internet, you must then do some basic security setups on the Pi. All of this step will be in done using the terminal:
 
-> NOTE: you are currently working as the default use Pi
+> NOTE: you are currently working as the default user pi
 
-1. First we will make sure we are working as root. Type the following
+1. First we will make sure we are working as root. Type the following and press enter
 
 ``sudo su``
 
@@ -101,7 +101,7 @@ You should now see the terminal entry line ends with a ``#``. This shows you are
 
 ![Working as Root](../assets/pisecurity1.png?raw=true)
 
-2. Now we will change the default Pi user password (don't delete the Pi user – we will need it later on)
+2. Now we will change the default Pi user password (don't delete the Pi user – you will need it later on to install Teamviewer)
 
 In your terminal type
 
@@ -699,10 +699,18 @@ Now we must go back to the Pi to complete the final steps of switching on your m
 
 1. On the Pi, open the wallet and let it synchronise
 2. Unlock the wallet by going to Settings > Unlock wallet – enter your passphrase
+
+Make sure that Unlock for sttakingg only is UNTICKED!
+
+![Unlock wallet](../assets/wallet16.png?raw=true)
+
 2. Go to the Masternodes tab
 3. You should see your Masternode(s) in the list
 4. Right click on it and click Start Alias
 5. You should see Protocol field show 70912 and Status field should show ENABLED
+
+![Start Masternode Alias](../assets/wallet15.png?raw=true)
+
 6. Wait ~48 hrs for the node to start earning rewards
 
 Now the final step is to lock the wallet and then unlock the wallet for staking only
@@ -710,6 +718,9 @@ Now the final step is to lock the wallet and then unlock the wallet for staking 
 1. Go to Settings > Lock wallet
 2. Go to Settings > Unlock wallet
 3. Enter your passphrase and tick “Unlock for staking only”
+
+![Unlock wallet](../assets/wallet13.png?raw=true)
+
 4. Click OK
 
 # Congratulations! #
@@ -723,9 +734,9 @@ You are now setup to earn masternode rewards and staking rewards to your Raspber
 
 A good thing to do now is to make a regular disk image backup of the SD card, so that if it fails, you can easily restore it.
 
-You can use the excellent raspbiBackup script. Get instructions on how to use it here: https://www.linux-tips-and-tricks.de/en/quickstart-rbk
+You can do so by using the raspbiBackup script. Get instructions on how to use it here: https://www.linux-tips-and-tricks.de/en/quickstart-rbk
 
-> NOTE: You can also automate this to regularly backup your SD card image using a CRON job to your USB drive.
+> NOTE: I am currently experimenting with this. I will update this guide with the automation script once I have it figured out.
 
 **Setup Remote Access to the Pi with TeamViewer**
 
