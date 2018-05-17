@@ -474,7 +474,7 @@ The above will now run the backup shell script every day at 11:59 and again at 2
 
 Now its time to start setting up the Masternode.
 
-First we must create the masternode wallet address(es) to send your masternode coins to.
+First we must create the masternode wallet address(es) in your controller wallet to send your masternode coins to.
 
 1. Go to file > receiving addresses
 2. Click +New button
