@@ -2,15 +2,15 @@
 
 **DISCLAIMER: This is not financial advice. The author accepts NO RESPONSIBILITY for ANY LOSS OF DATA or CAPITAL that may occur as a result of following and implementing the information contained in this guide. By reading and/or implementing the information contained herein, you agree to accept full responsibility for your actions, and shall assume the full risk of any liability arising from your own conduct. USE AT YOUR OWN RISK!**
 
-This guide is a work in progress. Feedback to help improve it and donations towards its upkeep are all welcome :)
+> NOTE: This guide is a work in progress. Feedback to help improve it and donations towards its upkeep are all welcome :)
 
 > $BITG Bitcoin Green Donation Address: **GXtS1QCPsMANpRDQa5xFwogfbxT42dy5uV**
 
 > $BTC Bitcoin Donation Address: **1AxzU81tw8rBL9vRyGdhWL4s4C8BusffP7**
 
-Current enhancements in the pipeline are to setup the Pi to run off an SSD drive instead of an SD card. I will update this guide when that happens.
+> Current enhancements in the pipeline are to setup the Pi to run off an SSD drive instead of an SD card. I will update this guide when that happens.
 
->NOTE: While this guide covers setting up multiple masternodes on the Pi, I have only tested it with a single BITG masternode (I can't afford more nodes at the moment). If you have the collateral to test additional nodes please do so and let me know how it goes. I'd like to know if the Pi is affected.
+> While this guide covers setting up multiple masternodes on the Pi, I have only tested it with a single BITG masternode (I can't afford more nodes at the moment). If you have the collateral to test additional nodes please do so and let me know how it goes. I'd like to know if the Pi is affected.
 
 ## Overview Of The Masternode Setup ##
 
@@ -26,13 +26,13 @@ Essentially I have just setup the cold wallet on the Pi instead of my personal l
 
 ## Dangers to be aware of with the Pi ##
 
-Using the Pi for this does come with some added things to take care of. 
-
 > NOTE: I'll add to this list as I discover any more shortcomings ;)
 
-Most importantly, the Pi runs off an SD card, and these are known to fail more regularly than your standard HDD, so backups of your wallet.dat file are VERY IMPORTANT to prevent any loss of your $BITG coins!
+Using the Pi for crypto minting does come with some added things to take care of to make sure your coins are safe.
 
-We also need to do some basic security to the Pi. Mine run behind my home routers firewall, but I do secure them by running some standard security instructions.
+Most importantly, the Pi runs off an SD card, and these are known to fail more regularly than your standard HDD, so regular backups of your wallet.dat file tto another drive are VERY IMPORTANT to prevent any loss of your $BITG coins!
+
+We also need to do some basic security to the Pi. Mine run behind my home routers firewall, but I do secure them further by running some standard security basics.
 
 This setup has 2 benefits with regards to running the masternode:
 
