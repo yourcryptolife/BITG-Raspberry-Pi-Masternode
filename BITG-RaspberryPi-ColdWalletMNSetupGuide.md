@@ -8,6 +8,7 @@ This guide is a work in progress. Feedback to help improve it and donations towa
 
 > $BTC Bitcoin Donation Address: **1AxzU81tw8rBL9vRyGdhWL4s4C8BusffP7**
 
+
 ## Overview Of The Masternode Setup ##
 
 This is a guide for setting up a Bitcoin Green Cold VPS Masternode using a Raspberry Pi3 to host the cold wallet & a Vultr Ubuntu 16.04 VPS to act as the public facing MN server. 
@@ -26,7 +27,7 @@ Essentially I have just setup the cold wallet on the Pi instead of my personal l
 
 Using the Pi for crypto minting does come with some added things to take care of to make sure your coins are safe.
 
-Most importantly, the Pi runs off an SD card, and these are known to fail more regularly than your standard HDD, so regular backups of your wallet.dat file tto another drive are VERY IMPORTANT to prevent any loss of your $BITG coins!
+Most importantly, the Pi runs off an SD card, and these are known to fail more regularly than your standard HDD, so regular backups of your wallet.dat file to another drive are VERY IMPORTANT to prevent any loss of your $BITG coins!
 
 We also need to do some basic security to the Pi. Mine run behind my home routers firewall, but I do secure them further by running some standard security basics.
 
@@ -53,7 +54,7 @@ This allows you to optimise the return of your masternode as you will earn both 
 
 ![Raspberry Pi Masternode Kit](../assets/pi3-kit.png?raw=true)
 
-6. A Linux VPS - in this guide we will use a $5 Vultr Ubuntu 16.04 Linux VPS server. Don't have one yet? No worries - you can get your Vultr server here (https://www.vultr.com/?ref=7352503)
+6. A Linux VPS - in this guide we will use a $5 Vultr Ubuntu 16.04 Linux VPS server. Don't have one yet? No worries - you can get your own Vultr VPS server here (https://www.vultr.com/?ref=7352503)
 
 7. At least 2501 BITG (2500 collateral for the masternode, the balance to cover any transaction fees). 
 
@@ -65,14 +66,10 @@ Coinexchange: https://goo.gl/LS2WV2
 
 CryptoBridge: https://goo.gl/7nZGdk
 
-Alright. Got all your stuff together? 
-
-Great! Let's get started :)
-
 
 ## SETUP YOUR PI ##
 
-First we will setup & configure the Pi so that it is properly secure and can run smoothly. Remember that this is where our coins will be kept, so making sure this is secure and properly set to backup regularly is critical.
+First we will setup & configure the Pi so that it is properly secure and can run backups smoothly. Remember that this is where our coins will be kept, so making sure this is secure and properly set to backup regularly is critical.
 
 > NOTE: For ease of use, I recommend using Noobs to install Rasbian. For more info on how to get Noobs onto the SD card, and do the Raspbian install, follow the steps here: https://www.raspberrypi.org/learning/software-guide/
 
@@ -85,7 +82,7 @@ Do the following to get the Pi online.
 
 Once Raspbian has been installed and you have setup the wifi connection to the internet, you must then do some basic security setups on the Pi. All of this step will be in done using the terminal:
 
-> NOTE: you are currently working as the default user pi
+> NOTE: If this is on a default install, you are currently working as the default user Pi
 
 1. First we will make sure we are working as root. Type the following and press enter
 
@@ -109,17 +106,17 @@ Confirm the new password when asked.
 
 ![Password changed](../assets/pisecurity2.png?raw=true)
 
-3. Now create a new superuser and password (I recommend creating superuser 'bitg' to make this tutorial easier to follow and to allow the backup script to run without you having to make any edits). 
+3. Now create a new superuser and password (If you are new to linux I recommend creating superuser 'bitg' to make this tutorial easier to follow and to allow the backup script to run without you having to make any edits). 
 
 At the prompt type
 
 ``sudo adduser bitg``
 
-Supply a password for this userr when prompted. When asked for the details such as Name etc, just press enter until you get to the line asking you if the information is correct, at which point you just type `y` and press enter.
+Supply a password for this user when prompted. When asked for the details such as Name etc, just press enter until you get to the line asking you if the information is correct, at which point you just type `y` and press enter.
 
 ![User bitg added](../assets/pisecurity3.png?raw=true)
 
-Now we must upgrade the bitg user to a superuser. at the prompt type
+Now we must upgrade the bitg user to a superuser. At the prompt type
 
 ``sudo adduser bitg sudo `` 
 
@@ -155,7 +152,7 @@ First, to update your package list type
 
 ![get filesystem updates](../assets/pisecurity7.png?raw=true)
 
-Next to update the distro type 
+Next to rrun the upgrades, type 
 
 ``sudo apt-get dist-upgrade`` and press enter
 
@@ -173,6 +170,7 @@ At the prompt enter each line, and press enter at the end of each line
 sudo apt-get clean
 sudo apt-get autoremove --purge
 ```
+
 ![remove unnecessary files](../assets/pisecurity10.png?raw=true)
 
 You can save this page as a reference https://www.raspberrypi.org/documentation/raspbian/updating.md
@@ -187,6 +185,7 @@ sudo ufw limit ssh/tcp
 sudo ufw logging on
 sudo ufw enable
 ```
+
 ![install and configure firewall](../assets/pisecurity11.png?raw=true)
 
 Now type 
@@ -221,9 +220,8 @@ SSH is typically used for remote access (we'll use it a little later to access o
 
 My Pi's run on my home network behind my router and so don't have a static external IP. For remote access to the Pi's I just run Teamviewer for Rasbian (instructions on how to do this at the end of the guide).
 
-If you want to activate SSH on yoru Pi so that you can access it via SSH, you can look at the instructions on this page - https://www.raspberrypi.org/documentation/configuration/security.md. 
+If you want to activate SSH on your Pi so that you can access it via SSH, you can look at the instructions on this page - https://www.raspberrypi.org/documentation/configuration/security.md. 
 
-IMO however SSH is not necessary for this setup.
 
 ## SETUP THE CONTROLLER (COLD) WALLET ##
 
@@ -260,7 +258,7 @@ Check that you now have a folder called 'Bitcoingreen Files' under home/bitg (bi
 
 ![press execute](../assets/wallet4.png?raw=true)
 
-8. When prompted, select 'Use default data directory' (the path shown in grey should be /home/bitg/.bitcoingreen) – this is important for the backup script to work
+8. When prompted, select 'Use default data directory' (the path shown in grey should be /home/bitg/.bitcoingreen) – this is important for the backup script to work without having to edit it
 
 ![choose default data directory](../assets/wallet5.png?raw=true)
 
@@ -294,7 +292,9 @@ To do this, we need to access the bootstrap files we downloaded earlier.
 ![paste bootstrap files into .bitcoin directory](../assets/wallet9.png?raw=true)
 
 7. Go back to the home>bitg>Bitcoin Green>bitcoingreen-1.0.0>bin folder, and double click the bitcoingreen-qt file again to launch the wallet. Remember to press the 'Execute' button when prompted.
+
 8. The wallet will now launch and complete the synchronisation process.
+
 
 ## SECURE THE CONTROLLER WALLET ##
 
@@ -353,10 +353,13 @@ To do a manual backup of the wallet.dat file, do the following:
 
 ![manual backup](../assets/wallet14.png?raw=true)
 
-To keep the Pi running smoothly however, we want to automate this process, and ensure that the backup file is kept on the USB drive in case the SD card ever fails (which is common on the Pi). To do this we must create a shell script that can save a compressed and timestamped copy of our wallet.dat file twice a day.
+To keep the Pi running smoothly however, we want to automate this process, and ensure that the backup file is kept on the USB drive in case the SD card ever fails. 
+
+To do this we must create a shell script that can save a compressed and timestamped copy of our wallet.dat file twice a day.
 
 1. Open your terminal on the Pi
-2. type
+
+2. Type
 
 ``sudo nano bitgbackup.sh``
 
@@ -364,7 +367,8 @@ To keep the Pi running smoothly however, we want to automate this process, and e
 
 ![auto backup-step1](../assets/backup1.png?raw=true)
 
-4. nano will now open.
+4. Nano will now open
+
 5. Copy and paste (right click > paste) the following into nano:
 
 ```
@@ -433,7 +437,7 @@ to see that the backup file is being writtten to the USB.
 
 13. Press enter
 
-You should see the script push out some output as it backs up to the USB drive. This should show you the directory listing of the USB so you can see if your backup file exists.
+You should see the script push out some output as it backs up to the USB drive. This should also show you the directory listing of the USB so you can see if your backup file exists.
 
 ![auto backup-step6](../assets/backup6.png?raw=true)
 
@@ -447,23 +451,24 @@ To automate this script, we must now setup a CRON job to manage it.
 
 ``sudo crontab -e``
 
-2. press enter
+2. Press enter
 
 ![auto backup-step7](../assets/backup7.png?raw=true)
 
-3. if its the first time you are doing this, you must now choose a text editor - I suggest choose 2 (nano) and press enter
-4. navigate to the bottom of the file using your arrow keys
-5. type the following, each on a new line
+3. If its the first time you are doing this, you must now choose a text editor - I suggest choose 2 (nano) and press enter
+4. Navigate to the bottom of the file using your arrow keys
+5. ype the following, each on a new line
 ```
 59 11 * * * /home/bitg/bitgbackup.sh
 59 23 * * * /home/bitg/bitgbackup.sh
 ```
-6. press ``CTRL + X``
-7. type ``Y`` and press enter
+6. Press ``CTRL + X``
+7. Type ``Y`` and press enter
 
 ![auto backup-step8](../assets/backup8.png?raw=true)
 
 The above will now run the backup shell script every day at 11:59 and again at 23:59 and will save a zipped copy of the wallet.dat file to the USB drive. Make sure to check on this regularly and make additional backups off this USB drive.
+
 
 ## SETUP THE MASTERNODE - THE CONTROLLER WALLET ##
 
@@ -690,6 +695,7 @@ This will restart the masternode server on the VPS.
 6. Run this until you see ``“message”:Masternode successfully started”``.
 
 Now we must go back to the Pi to complete the final steps of switching on your masternode.
+
 
 ## START THE MASTERNODE - ON YOUR PI ##
 
