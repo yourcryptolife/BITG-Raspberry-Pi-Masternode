@@ -20,7 +20,11 @@ The setup builds on top of the Bitcoin Green cold wallet setup guide & masternod
 
 I have just setup the cold wallet on the Pi instead of my personal laptop. The VPS masternode server setup is exactly the same as XeZZoR's guide, so if you are familiar with that, this should be quite easy to follow.
 
-Using the Pi for this does come with some added things to take care of. It runs off an SD card, and these are known to fail more regularly than your standard HDD, so backups are VERY IMPORTANT! 
+## Dangers to be aware of with the Pi ##
+
+Using the Pi for this does come with some added things to take care of. 
+
+It runs off an SD card, and these are known to fail more regularly than your standard HDD, so backups are VERY IMPORTANT!
 
 We also need to do some basic security to the Pi. Mine run behind my home routers firewall, but I do secure them by running some standard security instructions.
 
