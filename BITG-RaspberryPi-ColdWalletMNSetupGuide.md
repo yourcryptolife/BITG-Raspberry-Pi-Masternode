@@ -4,7 +4,7 @@
 
 This guide is a work in progress. Feedback to help improve it and donations towards its upkeep are all welcome :)
 
-> ![$BITG Bitcoin Green](https://coinmarketcap.com/currencies/bitcoin-green/) Donation Address: **GXtS1QCPsMANpRDQa5xFwogfbxT42dy5uV**
+> ![$BITG Bitcoin Green](https://coinmarketcap.com/currencies/bitcoin-green/?raw=true) Donation Address: **GXtS1QCPsMANpRDQa5xFwogfbxT42dy5uV**
 
 > ![$BTC Bitcoin](https://coinmarketcap.com/currencies/bitcoin/) Donation Address: **1AxzU81tw8rBL9vRyGdhWL4s4C8BusffP7**
 
