@@ -11,15 +11,15 @@ This guide is a work in progress. Feedback to help improve it and donations towa
 
 ## Overview Of The Masternode Setup ##
 
-This is a guide for setting up a Bitcoin Green Cold VPS Masternode using a Raspberry Pi3 to host the cold wallet & a Vultr Ubuntu 16.04 VPS to act as the public facing MN server. 
+This is a guide for setting up a Bitcoin Green Cold VPS Masternode using a Raspberry Pi3 to host the controller wallet & a Vultr Ubuntu 16.04 VPS to act as the public facing MN server. 
 
-I decided to try this approach as I wanted to be able to keep my cold wallet open 24/7 so that it could earn staking rewards on top of the masternode rewards. 
+I decided to try this approach as I wanted to be able to keep my controller wallet open 24/7 so that it could earn staking rewards on top of the masternode rewards. 
 
 To do this on my personal laptop wouldn't work, and as there was a Pi wallet released for BITG, I decided to see if it would work.
 
-The setup builds on top of the Bitcoin Green cold wallet setup guide & masternode setup script (https://goo.gl/S7fKdP) provided in the Bitcoin Green Discord channel (https://discord.gg/g3CFth) by XeZZoR (thanks mate).
+The setup builds on top of the Bitcoin Green wallet setup guide & masternode setup script (https://goo.gl/S7fKdP) provided in the Bitcoin Green Discord channel (https://discord.gg/g3CFth) by XeZZoR (thanks mate).
 
-Essentially I have just setup the cold wallet on the Pi instead of my personal laptop. The VPS masternode server setup is exactly the same as XeZZoR's guide and uses his script, so if you are familiar with that, this should be quite easy to follow.
+Essentially I have just setup the controller wallet on the Pi instead of my personal laptop. The VPS masternode server setup is exactly the same as XeZZoR's guide and uses his script, so if you are familiar with that, this should be quite easy to follow.
 
 ## Dangers to be aware of with the Pi ##
 
@@ -43,7 +43,7 @@ This allows you to optimise the return of your masternode as you will earn both 
 
 **Before we get started, you will need the following items:**
 
-1. Raspberry Pi 3 to host your cold wallet and coins
+1. Raspberry Pi 3 to host your controller wallet and coins
 2. At least an 8GB micro SD Card with Noobs installed
 3. A Pi power pack, a monitor, USB keyboard and USB mouse. If you have a VGA monitor, you'll need a VGA to HDMI converter as the Pi only has a HDMI slot. The keyboard, mouse and monitor are needed for the initial setup of the Pi. Once the Pi is configured and online, you can access it remotely via TeamViewer. 
 4. A USB drive to hold backups of your wallet.dat file.
@@ -223,11 +223,11 @@ My Pi's run on my home network behind my router and so don't have a static exter
 If you want to activate SSH on your Pi so that you can access it via SSH, you can look at the instructions on this page - https://www.raspberrypi.org/documentation/configuration/security.md. 
 
 
-## SETUP THE CONTROLLER (COLD) WALLET ##
+## SETUP THE CONTROLLER WALLET ##
 
 After the Pi has rebooted, login as the new superuser you created (if you followed instructions, this will be user 'bitg' and you will be prompted for a password to login)
 
-Now its time to setup the cold controller wallet. This is the wallet that will hold the collateral for the masternode.
+Now its time to setup the controller wallet. This is the wallet that will hold the collateral for the masternode.
 
 Before we do so, we will need to download the correct wallet version for the Pi, as well as the BITG Bootstrap files to speed up the wallet synchronisation process. 
 
@@ -702,7 +702,7 @@ Now we must go back to the Pi to complete the final steps of switching on your m
 1. On the Pi, open the wallet and let it synchronise
 2. Unlock the wallet by going to Settings > Unlock wallet – enter your passphrase
 
-Make sure that Unlock for sttakingg only is UNTICKED!
+Make sure that Unlock for staking only is UNTICKED!
 
 ![Unlock wallet](../assets/wallet16.png?raw=true)
 
