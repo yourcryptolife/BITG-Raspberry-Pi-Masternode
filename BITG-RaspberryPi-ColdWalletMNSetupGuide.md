@@ -154,17 +154,17 @@ First, to update your package list type
 
 ``sudo apt-get update`` and press enter
 
-![force sudo password](../assets/pisecurity7.png)
+![get filesystem updates](../assets/pisecurity7.png)
 
 Next to update the distro type 
 
 ``sudo apt-get dist-upgrade`` and press enter
 
-![force sudo password](../assets/pisecurity8.png)
+![start upgrade](../assets/pisecurity8.png)
 
 You will be shown a list of new installs and upgrades - type `y` annd press enter to complete the upgrade process.
 
-![force sudo password](../assets/pisecurity9.png)
+![confirm update](../assets/pisecurity9.png)
 
 Now remove unnecessary files after the upgrade to maximise space on the SD card. 
 
@@ -174,7 +174,7 @@ At the prompt enter each line, and press enter at the end of each line
 sudo apt-get clean
 sudo apt-get autoremove --purge
 ```
-![force sudo password](../assets/pisecurity10.png)
+![remove unnecessary files](../assets/pisecurity10.png)
 
 You can save this page as a reference https://www.raspberrypi.org/documentation/raspbian/updating.md
 
@@ -188,7 +188,7 @@ sudo ufw limit ssh/tcp
 sudo ufw logging on
 sudo ufw enable
 ```
-![force sudo password](../assets/pisecurity11.png)
+![install and configure firewall](../assets/pisecurity11.png)
 
 Now type 
 
@@ -196,13 +196,13 @@ Now type
 
 The firewall should say that status is active.
 
-![force sudo password](../assets/pisecurity12.png)
+![check firewall status](../assets/pisecurity12.png)
 
 7. Now we will install fail2ban. What this app does is ban people that keep entering the wrong password when trying to login via ssh, i.e brute force attacks. Remember to press enter after each line
 
 ``sudo apt-get install fail2ban`` and enter `y` when prompted
 
-![force sudo password](../assets/pisecurity13.png)
+![install fail2ban](../assets/pisecurity13.png)
 
 Now type the following
 
@@ -210,15 +210,21 @@ Now type the following
 sudo systemctl enable fail2ban
 sudo systemctl start fail2ban
 ```
-![force sudo password](../assets/pisecurity14.png)
+![start fail2ban](../assets/pisecurity14.png)
 
 After you have performed the above steps, go to Shutdown > Reboot
 
+![Reboot](../assets/pisecurity15.png)
+
 **A Note on SSH**
+
+SSH is typically used for remote access (we'll use it a little later to access our VPS). However you need a static IP in order to use it.
+
+My Pi's run on my home network behind my router and so don't have a static external IP. For remote access I just run Teamviewer for Rasbian (instructions on how to do this at the end of the guide).
 
 If you want to activate SSH you can look at the instructions on this page - https://www.raspberrypi.org/documentation/configuration/security.md. 
 
-My Pi's run on my home network behind my router and so don't have a static IP. For remote access I just run Teamviewer for Rasbian (instructions on how to do this at the end of the guide).
+IMO however SSH is not necessary for this setup.
 
 ## SETUP THE CONTROLLER (COLD) WALLET ##
 
