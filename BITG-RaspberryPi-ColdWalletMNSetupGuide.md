@@ -571,6 +571,37 @@ MN2 234.178.115.231:9334 76HGT56432aashjhYT65435jGHHJGkjhhi887JHKkh908KJkjhh 98d
 
 10. Restart the wallet.
 
+**VERY IMPORTANT - Backup ALL Your Wallets Receiving Address Private Keys!!!** 
+
+If you have the private key to each receiving wallet address, you will ALWAYS be able to get your coins - even if the wallet corrupts, and your wallet.dat backups fail. 
+
+You only have to do this once for each new wallet address you create as the private key will never change for that address.
+
+To do this, follow these steps:
+
+1. Go to Settings > Unlock wallet
+2. Enter your passphrase when prompted, making sure that Unlock for staking only is UNICKED
+
+![Unlock wallet](../assets/wallet16.png?raw=true)
+
+3. Go to Tools > Debug Console
+
+4. Type ``dumpprivkey YOUR_WALLET_ADDRESS`` eg. ``dumpprivkey GX5hkjhk345kjhhkjh3455hhJHKJHAS2ksu``
+
+![Enter wallet public address](../assets/backup10.png?raw=true)
+
+5. Copy / paste / write down the resulting string you get in a text editor. 
+
+![Get private key](../assets/backup11.png?raw=true)
+
+6. Repeat for EACH RECEIVING wallet address you have in your wallet.
+
+7. Save the text file and keep it somewhere safe - preferrably on an external drive and possibly also a printout stored in a safe. 
+
+8. Lock your wallet again.
+
+9. Unlock your wallet for staking only.
+
 OK so now we need to move across to setting up the VPS on Vultr.
 
 ## SETUP THE MASTERNODE - ON THE VPS ##
