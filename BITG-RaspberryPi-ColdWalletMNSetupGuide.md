@@ -152,7 +152,7 @@ First, to update your package list type
 
 ![get filesystem updates](../assets/pisecurity7.png?raw=true)
 
-Next to rrun the upgrades, type 
+Next to run the upgrades, type 
 
 ``sudo apt-get dist-upgrade`` and press enter
 
@@ -220,7 +220,7 @@ SSH is typically used for remote access (we'll use it a little later to access o
 
 My Pi's run on my home network behind my router and so don't have a static external IP. For remote access to the Pi's I just run Teamviewer for Rasbian (instructions on how to do this at the end of the guide).
 
-If you want to activate SSH on your Pi so that you can access it via SSH, you can look at the instructions on this page - https://www.raspberrypi.org/documentation/configuration/security.md. 
+If you want to activate SSH on your Pi so that you can access it via SSH, you can look at the instructions on this page under the SSH section - https://www.raspberrypi.org/documentation/configuration/security.md. 
 
 
 ## SETUP THE CONTROLLER WALLET ##
@@ -248,7 +248,7 @@ Check that you now have a folder called 'Bitcoingreen Files' under home/bitg (bi
 
 ![download wallet and bootstrap files](../assets/wallet2.png?raw=true)
 
-4. Extract the wallet zip file (right click on it, then select Extract Here). This should create a folder named bitcoingreen-1.1.0
+4. Extract the wallet zip file (right click on it, then select Extract Here). This should create a folder named bitcoingreen-1.1.0 (wallet version at the time of writing - it will have different numbers at the end as new versions are released)
 5. Open this folder, and then open the 'bin' folder. Inside the bin folder you will see 6 files. 
 6. Double click on the file called bitcoingreen-qt to start the wallet install. 
 
