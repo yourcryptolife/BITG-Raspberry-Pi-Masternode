@@ -44,7 +44,7 @@ This allows you to optimise the return of your masternode as you will earn both 
 **Before we get started, you will need the following items:**
 
 1. Raspberry Pi 3 to host your controller wallet and coins
-2. At least an 8GB micro SD Card with Noobs installed
+2. At least a 16GB micro SD Card with Noobs installed
 3. A Pi power pack, a monitor, USB keyboard and USB mouse. If you have a VGA monitor, you'll need a VGA to HDMI converter as the Pi only has a HDMI slot. The keyboard, mouse and monitor are needed for the initial setup of the Pi. Once the Pi is configured and online, you can access it remotely via TeamViewer. 
 4. A USB drive to hold backups of your wallet.dat file.
 
