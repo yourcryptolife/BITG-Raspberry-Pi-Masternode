@@ -178,6 +178,7 @@ You can save this page as a reference https://www.raspberrypi.org/documentation/
 6. Install ufw firewall and enable it by typing each of the following in succession (press enter after each line),
 
 ```
+sudo apt-get install ufw
 sudo ufw default allow outgoing
 sudo ufw default deny incoming
 sudo ufw allow ssh/tcp
