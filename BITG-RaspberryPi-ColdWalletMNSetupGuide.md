@@ -581,7 +581,7 @@ You only have to do this once for each new wallet address you create as the priv
 To do this, follow these steps:
 
 1. Go to Settings > Unlock wallet
-2. Enter your passphrase when prompted, making sure that Unlock for staking only is UNICKED
+2. Enter your passphrase when prompted, making sure that Unlock for staking only is UNTICKED
 
 ![Unlock wallet](../assets/wallet16.png?raw=true)
 
